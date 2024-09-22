@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Job
 
 # Create your views here.
-def index(request):
-    return render(request, 'jobs/index.html')
+class JobList(generic.ListView):
+    model = Job

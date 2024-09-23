@@ -12,6 +12,7 @@ class Job(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField()
+    excerpt = models.TextField(blank=True)
     location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     employer = models.ForeignKey(User, on_delete=models.CASCADE)

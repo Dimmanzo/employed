@@ -1,54 +1,55 @@
 body {
-    background-color: #F0F4F8;
+    background-color: #E5E9F2;
     font-family: 'Arial', sans-serif;
 }
 
 .navbar {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #DDDDDD;
+    background-color: #33475B;
+    border-bottom: 1px solid #2C3E50;
 }
 
 .navbar-brand {
     font-weight: bold;
-    color: #333;
+    color: #FFFFFF;
 }
 
 .nav-link {
-    color: #333;
+    color: #FFFFFF;
     margin-right: 15px;
 }
 
 .nav-link:hover {
-    color: #007BFF;
+    text-decoration: underline;
 }
 
 .card {
-    border: 1px solid #DDDDDD;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #C1C8D6;
+    background-color: #F7F7F7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
     font-weight: bold;
-    color: #333;
+    color: #22303C;
 }
 
 .card-text {
-    color: #666;
+    color: #555555;
+}
+
+.job-link {
+    text-decoration: none;
+    color: #22303C;
+}
+
+.job-link:hover {
+    text-decoration: underline;
 }
 
 .footer {
-    background-color: #333;
+    background-color: #33475B;
     color: #FFFFFF;
     padding: 10px;
     text-align: center;
-    border-top: 1px solid #DDDDDD;
-}
-
-.pagination .page-link {
-    color: #007BFF;
-}
-
-.pagination .page-link:hover {
-    color: #0056b3;
+    border-top: 1px solid #2C3E50;
 }

@@ -18,9 +18,12 @@
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">Posted on: {{ job.created_at }}</p>
-                            <p class="card-text">Location: {{ job.location }}</p>
-                            <p class="card-text">Status: {{ job.status }}</p>
+                            <p class="card-text">{{ job.excerpt }}</p>
+                            
+                            <hr />
+                            <p class="card-text">{{ job.location }}</p>
+                            <p class="card-text d-none">{{ job.status }}</p>
+                            <p class="card-text text-muted h6 text-end">{{ job.created_at }}</p>
                         </div>
                     </div>
                 </div>

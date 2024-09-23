@@ -42,6 +42,14 @@
                         <span>Logged in as: <span class="username">{{ user.username }}</span> |</span> 
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <span class="nav-link-separator">|</span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                    </li>
+                    <span class="nav-link-separator">|</span>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
                     {% else %}

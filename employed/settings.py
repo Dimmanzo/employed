@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'jobs',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +130,7 @@ USE_TZ = True
 
 # Redirect after login
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 LOGOUT_REDIRECT_URL = 'home'
 

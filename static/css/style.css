@@ -1,10 +1,10 @@
-/* Refined Background */
+/* Background */
 body {
     background-color: #F4F7FC;
     font-family: 'Roboto', sans-serif;
 }
 
-/* Improved Navbar */
+/* Navbar */
 .navbar {
     background-color: #33475B;
     border-bottom: 2px solid #2C3E50;
@@ -22,6 +22,10 @@ body {
 }
 
 .nav-item span {
+    color: #FFFFFF;
+}
+
+.nav-link-separator {
     color: #FFFFFF;
 }
 
@@ -43,28 +47,29 @@ body {
 
 .job-link:hover {
     color: #e67e22
-
 }
 
-/* Improved Footer */
-.footer {
-    background-color: #33475B;
-    border-top: 2px solid #2C3E50;
-    color: #FFFFFF;
-    padding: 20px 0 0 0;
-    text-align: center;
-    font-size: 14px;
-}
-
-.footer a {
-    color: #f39c12;
+/* Dashboard Styling */
+.dash-job-link {
     text-decoration: none;
 }
 
-.footer a:hover {
-    color: #fff;
-    text-decoration: underline;
+.dash-job-link:hover {
+    color: #e67e22;
 }
+
+.btn-dash {
+    padding: 6px 12px;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
 
 /* Job Links */
 .job-link {
@@ -108,6 +113,43 @@ body {
 
 .forgot-pass a {
     text-decoration: none;
+}
+
+.forgot-pass:hover a {
     color: #e67e22;
 }
 
+/* Buttons */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.btn-group {
+    margin-left: 10px;
+}
+
+.btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+    background-color: #33475B;
+    border-top: 2px solid #2C3E50;
+    color: #FFFFFF;
+    padding: 20px 0 0 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}

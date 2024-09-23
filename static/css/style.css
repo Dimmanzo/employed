@@ -22,6 +22,10 @@ body {
     text-decoration: underline;
 }
 
+.nav-item {
+    color: #FFFFFF;
+}
+
 .card {
     border: 1px solid #C1C8D6;
     background-color: #F7F7F7;
@@ -44,6 +48,10 @@ body {
 
 .job-link:hover {
     text-decoration: underline;
+}
+
+.forgot-pass a {
+    text-decoration: none;
 }
 
 .footer {

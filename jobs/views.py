@@ -21,7 +21,7 @@ def register(request):
             user.role = form.cleaned_data['role']
             user.save()
             login(request, user)
-            messages.success(request, 'Registration successful! You can now log in.')
+            messages.success(request, 'Registration successful! You are now logged in...')
             return redirect('home')
     else:
         form = RegistrationForm()

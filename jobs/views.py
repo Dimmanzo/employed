@@ -10,7 +10,7 @@ from .models import Job
 class JobList(generic.ListView):
     model = Job
     template_name = "jobs/index.html"
-    paginate_by = 3
+    paginate_by = 9
 
 
 def register(request):

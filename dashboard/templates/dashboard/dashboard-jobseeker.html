@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Dashboard</h2>
+
+    <!-- Job Applications Section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>Your Job Applications</h3>
+            <ul class="list-unstyled">
+                <!-- Example 1 -->
+                <li class="d-flex align-items-center">
+                    <a href="#" class="dash-job-link me-auto">Python Developer</a>
+                    <span class="text-muted">Pending</span>
+                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                </li>
+                <!-- Example 2 -->
+                <li class="d-flex align-items-center">
+                    <a href="#" class="dash-job-link me-auto">React Developer</a>
+                    <span class="text-muted">Closed</span>
+                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                </li>
+                <!-- Example 3 -->
+                <li class="d-flex align-items-center">
+                    <a href="#" class="dash-job-link me-auto">Data Scientist</a>
+                    <span class="text-muted">Open</span>
+                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

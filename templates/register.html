@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-danger mt-4">
+    <ul>
+        {% for field in form %}
+        {% if field.errors %}
+        <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="container mt-5">
+    <h2>Register</h2>
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Username</label>
+            <input type="text" name="username" id="id_username" class="form-control" required>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="id_email" class="form-label">Email address</label>
+            <input type="email" name="email" id="id_email" class="form-control" required>
+        </div>
+
+        <!-- Password 1 -->
+        <div class="mb-3">
+            <label for="id_password1" class="form-label">Password</label>
+            <input type="password" name="password1" id="id_password1" class="form-control" required>
+        </div>
+
+        <!-- Password 2 -->
+        <div class="mb-3">
+            <label for="id_password2" class="form-label">Confirm Password</label>
+            <input type="password" name="password2" id="id_password2" class="form-control" required>
+        </div>
+
+        <!-- Role -->
+        <div class="mb-3">
+            <label for="id_role" class="form-label">Role</label>
+            <select name="role" id="id_role" class="form-select">
+                <option value="job_seeker">Job Seeker</option>
+                <option value="employer">Employer</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+{% endblock %}

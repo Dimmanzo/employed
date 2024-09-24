@@ -1,8 +1,16 @@
 from django import forms
-from .models import Profile
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
-class ProfileUpdateForm(forms.ModelForm):
+class RegistrationForm(UserCreationForm):
+    ROLE_CHOICES = (
+        ('job_seeker', 'Job Seeker'),
+        ('employer', 'Employer'),
+    )
+
+    role = forms.ChoiceField(choices=ROLE_CHOICES)
+
     class Meta:
-        model = Profile
-        fields = ['role']
+        model = User
+        fields = ['username', 'email', 'password1', 'password2', 'role']

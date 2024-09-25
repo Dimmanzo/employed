@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Post a New Job</h2>
+
+            <!-- Form to post a new job -->
+            <form method="POST">
+                {% csrf_token %}
+
+                <!-- Job Title -->
+                <div class="mb-3">
+                    <label for="id_title" class="form-label">Job Title</label>
+                    <input type="text" name="title" id="id_title" class="form-control" placeholder="Enter job title" required>
+                </div>
+
+                <!-- Job Description -->
+                <div class="mb-3">
+                    <label for="id_description" class="form-label">Job Description</label>
+                    <textarea name="description" id="id_description" class="form-control" rows="5" placeholder="Enter job description" required></textarea>
+                </div>
+
+                <!-- Excerpt -->
+                <div class="mb-3">
+                    <label for="id_excerpt" class="form-label">Job Excerpt</label>
+                    <textarea name="excerpt" id="id_excerpt" class="form-control" rows="3" placeholder="Brief job summary" required></textarea>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="id_location" class="form-label">Location</label>
+                    <input type="text" name="location" id="id_location" class="form-control" placeholder="Enter job location" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Post Job</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

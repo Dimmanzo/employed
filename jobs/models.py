@@ -6,7 +6,6 @@ class Job(models.Model):
     STATUS_CHOICES = (
         ('open', 'Open'),
         ('closed', 'Closed'),
-        ('pending', 'Pending'),
     )
 
     title = models.CharField(max_length=100)
@@ -16,7 +15,7 @@ class Job(models.Model):
     location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     employer = models.ForeignKey(User, on_delete=models.CASCADE)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='open')
     
     class Meta:
         ordering = ["-created_at"]

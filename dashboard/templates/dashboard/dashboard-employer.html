@@ -13,7 +13,7 @@
             <ul class="list-unstyled">
                 {% for job in user_jobs %}
                 <li class="d-flex align-items-center">
-                    <a href="#" class="dash-job-link me-auto">{{ job.title }}</a>
+                    <a href="#" class="dash-job-link me-auto">{{ job.title }}</a><span>{{ job.status }}</span>   
                     <a href="#" class="btn btn-sm btn-warning mx-2 btn-dash">Edit</a>
                     <a href="#" class="btn btn-sm btn-danger btn-dash">Remove</a>
                 </li>

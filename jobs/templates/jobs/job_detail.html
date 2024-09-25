@@ -70,14 +70,20 @@
 
                 <!-- Submit Button -->
                 <div class="d-flex align-items-center mb-5">
-                    <!-- Submit Button -->
                     {% if user.is_authenticated %}
-                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                        {% if user.profile.role == 'job_seeker' %}
+                            <!-- Job Seeker button -->
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        {% elif user.profile.role == 'employer' %}
+                            <!-- Employer button -->
+                            <button type="submit" class="btn btn-primary" disabled>Submit Application</button>
+                            <a href="{% url 'register' %}" class="text-danger ms-2 mb-0">You need to register a Job Seeker account to apply.</a>
+                        {% endif %}
                     {% else %}
+                        <!-- Unauthenticated users button -->
                         <button type="submit" class="btn btn-primary" disabled>Submit Application</button>
                         <a href="{% url 'login' %}" class="text-danger ms-2 mb-0">You need to be logged in to submit an application.</a>
                     {% endif %}
-                </div>
             </form>
         </div>
     </div>

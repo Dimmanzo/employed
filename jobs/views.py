@@ -16,6 +16,8 @@ class JobList(generic.ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
 
+        queryset = queryset.filter(status='open')
+
         # Get values from GET request
         job_type = self.request.GET.get('job_type')
         work_type = self.request.GET.get('work_type')

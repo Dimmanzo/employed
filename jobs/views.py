@@ -6,11 +6,30 @@ from .models import Job
 from .forms import JobForm
 
 
-# View to display a list of jobs :D
+# View to display and filter jobs
 class JobList(generic.ListView):
     model = Job
     template_name = "jobs/index.html"
     paginate_by = 9
+
+# Override get_queryset method to apply filters
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        # Get values from GET request
+        job_type = self.request.GET.get('job_type')
+        work_type = self.request.GET.get('work_type')
+        location = self.request.GET.get('location')
+
+        # Apply filters
+        if job_type:
+            queryset = queryset.filter(job_type=job_type)
+        if work_type:
+            queryset = queryset.filter(work_type=work_type)
+        if location:
+            queryset = queryset.filter(location__icontains=location)
+
+        return queryset
 
 
 # View to handle creating a new job

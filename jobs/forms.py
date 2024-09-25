@@ -7,7 +7,7 @@ from .models import Job
 class JobForm(forms.ModelForm):
     class Meta:
         model = Job
-        fields = ['title', 'description', 'excerpt', 'location']
+        fields = ['title', 'description', 'excerpt', 'location', 'job_type', 'work_type']
 
         widgets = {
             'description': forms.Textarea(attrs={'rows': 5}),

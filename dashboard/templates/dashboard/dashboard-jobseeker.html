@@ -9,24 +9,15 @@
         <div class="card-body">
             <h3>Your Job Applications</h3>
             <ul class="list-unstyled">
-                <!-- Example 1 -->
+                {% for application in user_applications %}
                 <li class="d-flex align-items-center">
-                    <a href="#" class="dash-job-link me-auto">Python Developer</a>
-                    <span class="text-muted">Pending</span>
+                    <a href="{% url 'job_detail' slug=application.job.slug %}" class="dash-job-link me-auto">
+                        {{ application.job.title }}
+                    </a>
+                    <span class="text-muted">{{ application.job.status }}</span>
                     <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
                 </li>
-                <!-- Example 2 -->
-                <li class="d-flex align-items-center">
-                    <a href="#" class="dash-job-link me-auto">React Developer</a>
-                    <span class="text-muted">Closed</span>
-                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
-                </li>
-                <!-- Example 3 -->
-                <li class="d-flex align-items-center">
-                    <a href="#" class="dash-job-link me-auto">Data Scientist</a>
-                    <span class="text-muted">Open</span>
-                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

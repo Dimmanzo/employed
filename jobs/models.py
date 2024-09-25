@@ -16,7 +16,7 @@ class Job(models.Model):
 
     WORK_TYPE_CHOICES = (
         ('remote', 'Remote'),
-        ('on_site', 'On_site'),
+        ('on_site', 'On-site'),
         ('hybrid', 'Hybrid'),
     )
 

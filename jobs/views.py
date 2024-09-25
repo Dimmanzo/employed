@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views import generic
@@ -31,6 +31,10 @@ class JobList(generic.ListView):
 
         return queryset
 
+# View to show job details
+def job_detail(request, slug):
+    job = get_object_or_404(Job, slug=slug)
+    return render(request, 'jobs/job_detail.html', {'job': job})
 
 # View to handle creating a new job
 @login_required

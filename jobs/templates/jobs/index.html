@@ -39,7 +39,7 @@
 
                 <!-- Apply and Reset Buttons -->
                 <div class="col-md-3 d-flex align-items-end" style="gap: 10px;">
-                    <button type="submit" class="btn btn-primary w-50" style="height: 38px;">Apply</button>
+                    <button type="submit" class="btn btn-primary w-50" style="height: 38px;">Apply filters</button>
                     <a href="{% url 'home' %}" class="btn btn-secondary w-50" style="height: 38px;">Reset</a>
                 </div>
 
@@ -53,13 +53,13 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body">
-                    <a href="#" class="job-link">
+                    <a href="{% url 'job_detail' slug=job.slug %}" class="job-link">
                         <h2 class="card-title">{{ job.title }}</h2>
                     </a>
                     <hr />
                     <p class="card-text">{{ job.excerpt }}</p>
                     <hr />
-                    <p class="card-text">{{ job.location }}</p>
+                    <p class="card-text">{{ job.location }} | {{ job.get_work_type_display }} | {{ job.get_job_type_display }}</p>
                     <p class="card-text text-muted h6 text-end">{{ job.created_at }}</p>
                 </div>
             </div>

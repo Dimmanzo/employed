@@ -13,30 +13,56 @@
                 <!-- Job Title -->
                 <div class="mb-3">
                     <label for="id_title" class="form-label">Job Title</label>
-                    <input type="text" name="title" id="id_title" class="form-control" placeholder="Enter job title" required>
+                    <input type="text" name="title" id="id_title" class="form-control" placeholder="Enter job title"
+                        required>
                 </div>
 
                 <!-- Job Description -->
                 <div class="mb-3">
                     <label for="id_description" class="form-label">Job Description</label>
-                    <textarea name="description" id="id_description" class="form-control" rows="5" placeholder="Enter job description" required></textarea>
+                    <textarea name="description" id="id_description" class="form-control" rows="5"
+                        placeholder="Enter job description" required></textarea>
                 </div>
 
                 <!-- Excerpt -->
                 <div class="mb-3">
                     <label for="id_excerpt" class="form-label">Job Excerpt</label>
-                    <textarea name="excerpt" id="id_excerpt" class="form-control" rows="3" placeholder="Brief job summary" required></textarea>
+                    <textarea name="excerpt" id="id_excerpt" class="form-control" rows="3"
+                        placeholder="Brief job summary" required></textarea>
                 </div>
 
                 <!-- Location -->
                 <div class="mb-3">
                     <label for="id_location" class="form-label">Location</label>
-                    <input type="text" name="location" id="id_location" class="form-control" placeholder="Enter job location" required>
+                    <input type="text" name="location" id="id_location" class="form-control"
+                        placeholder="Enter job location" required>
+                </div>
+
+                <!-- Job Type -->
+                <div class="mb-3">
+                    <label for="id_job_type" class="form-label">Job Type</label>
+                    <select name="job_type" id="id_job_type" class="form-select">
+                        <option value="">Select Job Type</option>
+                        <option value="full_time">Full Time</option>
+                        <option value="part_time">Part Time</option>
+                        <option value="contract">Contract</option>
+                    </select>
+                </div>
+
+                <!-- Work Type -->
+                <div class="mb-3">
+                    <label for="id_work_type" class="form-label">Work Type</label>
+                    <select name="work_type" id="id_work_type" class="form-select">
+                        <option value="">Select Work Type</option>
+                        <option value="remote">Remote</option>
+                        <option value="on_site">On-site</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
                 </div>
 
                 <!-- Submit Button -->
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Post Job</button>
+                    <button type="submit" class="btn btn-primary mb-5">Post Job</button>
                 </div>
 
             </form>

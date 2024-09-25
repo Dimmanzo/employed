@@ -38,17 +38,22 @@
                 </ul>
                 <ul class="navbar-nav ms-auto align-items-center">
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <span>Logged in as: <span class="username">{{ user.username }}</span> |</span> 
+                    <!-- only visible on large screens -->
+                    <li class="nav-item d-none d-lg-block">
+                        <span class="text-white">Logged in as: </span>
+                        <span class="username">{{ user.username }}</span>
                     </li>
+                    <!-- Separator for Large Screen -->
+                    <span class="nav-link-separator d-none d-lg-block">|</span>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
-                    <span class="nav-link-separator">|</span>
+                    <span class="nav-link-separator d-none d-lg-block">|</span>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                     </li>
-                    <span class="nav-link-separator">|</span>
+                    <span class="nav-link-separator d-none d-lg-block">|</span>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
@@ -64,6 +69,8 @@
             </div>
         </div>
     </nav>
+
+
 
     <main class="flex-shrink-0">
         <div class="container">

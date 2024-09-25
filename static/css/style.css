@@ -11,7 +11,17 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand, .nav-link {
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    /* White border */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-brand,
+.nav-link {
     color: #FFFFFF !important;
     transition: color 0.3s ease;
 }
@@ -31,6 +41,7 @@ body {
 
 .username {
     color: #f39c12 !important;
+    margin-right: 10px;
 }
 
 /* Card Styling */
@@ -151,4 +162,26 @@ ul {
 .footer a:hover {
     color: #fff;
     text-decoration: underline;
+}
+
+/* Custom styling for mobile view */
+@media (max-width: 991px) {
+
+.navbar-nav {
+    text-align: left !important;
+    width: 100%;
+    }
+
+.navbar-nav .nav-item {
+    width: 100%;
+    }
+
+.navbar-nav .nav-link {
+    padding-left: 15px;
+    text-align: left;
+    }
+
+.navbar-nav .nav-link-separator {
+    display: none;
+    }
 }

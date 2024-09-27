@@ -5,7 +5,8 @@ from django.apps import apps
 class Application(models.Model):
     APPLICATION_STATUS_CHOICES = (
         ('under_review', 'Under Review'),
-        ('closed', 'Closed'),
+        ('accepted', 'Accepted'),
+        ('rejected', 'Rejected'),
     )
 
     applicant = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -4,9 +4,11 @@
 <div class="container mt-5">
     <h2>Application for {{ application.job.title }} -
         {% if application.status == 'under_review' %}
-            <span class="text-success">Under Review</span>
-        {% elif application.status == 'closed' %}
-            <span class="text-danger">Closed - Unfortunately, we have moved forward with another candidate</span>
+            <span>Under Review</span>
+        {% elif application.status == 'accepted' %}
+            <span class="text-success">Accepted - Congratulations! You have been accepted. The employer will contact you soon.</span>
+        {% elif application.status == 'rejected' %}
+            <span class="text-danger">Rejected - Unfortunately, we have moved forward with another candidate</span>
         {% else %}
             <span class="text-muted">Unknown Status</span>
         {% endif %}

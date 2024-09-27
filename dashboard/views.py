@@ -8,7 +8,11 @@ from .models import Application
 def dashboard(request):
     if request.user.profile.role == 'employer':
         user_jobs = Job.objects.filter(employer=request.user)
-        return render(request, 'dashboard/dashboard-employer.html', {'user_jobs': user_jobs})
+        job_applications = Application.objects.filter(job__in=user_jobs)
+        return render(request, 'dashboard/dashboard-employer.html', {
+            'user_jobs': user_jobs,
+            'job_applications': job_applications
+            })
     elif request.user.profile.role == 'job_seeker':
         user_applications = Application.objects.filter(applicant=request.user)
         return render(request, 'dashboard/dashboard-jobseeker.html', {'user_applications': user_applications})
@@ -16,5 +20,35 @@ def dashboard(request):
 
 @login_required
 def view_application(request, application_id):
-    application = get_object_or_404(Application, id=application_id, applicant=request.user)
-    return render(request, 'dashboard/view_application.html', {'application': application})
+    application = get_object_or_404(Application, id=application_id)
+    
+    # Job Seekers view their own application
+    if request.user == application.applicant:
+        return render(request, 'dashboard/view_application.html', {'application': application})
+    
+    # Employers view applications for jobs they posted
+    elif request.user == application.job.employer:
+        return render(request, 'dashboard/view_application_employer.html', {'application': application})
+    
+    # Show an error, if not job seeker or the employer
+    else:
+        messages.error(request, "You do not have permission to view this application.")
+        return redirect('dashboard')
+
+
+@login_required
+def view_application_employer(request, application_id):
+    application = get_object_or_404(Application, id=application_id, job__employer=request.user)
+    
+    if request.method == 'POST':
+        if 'accept' in request.POST:
+            application.status = 'accepted'
+            messages.success(request, f'Application from {application.applicant.username} has been accepted.')
+        elif 'reject' in request.POST:
+            application.status = 'rejected'
+            messages.error(request, f'Application from {application.applicant.username} has been rejected.')
+        
+        application.save()
+        return redirect('dashboard')
+
+    return render(request, 'dashboard/view_application_employer.html', {'application': application})

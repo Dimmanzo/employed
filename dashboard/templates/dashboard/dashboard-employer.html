@@ -26,15 +26,16 @@
         <div class="card-body">
             <h3>Job Applications</h3>
             <ul class="list-unstyled">
-                <!-- Example -->
-                <li>
-                    Applicant Name - <a href="#">Python Developer</a>
-                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                {% for application in job_applications %}
+                <li class="d-flex align-items-center justify-content-between">
+                    <div class="me-auto">
+                        {{ application.applicant.username }} applied for - <a href="#">{{ application.job.title }}</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'view_application_employer' application.id %}" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                    </div>
                 </li>
-                <li>
-                    Applicant Name - <a href="#">React Developer</a>
-                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

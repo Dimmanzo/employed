@@ -14,8 +14,7 @@
                     <a href="{% url 'job_detail' slug=application.job.slug %}" class="dash-job-link me-auto">
                         {{ application.job.title }}
                     </a>
-                    <span class="text-muted">{{ application.job.status }}</span>
-                    <a href="#" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                    <a href="{% url 'view_application' application.id %}" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
                 </li>
                 {% endfor %}
             </ul>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Application for {{ application.job.title }} -
+        {% if application.status == 'under_review' %}
+            <span class="text-success">Under Review</span>
+        {% elif application.status == 'closed' %}
+            <span class="text-danger">Closed - Unfortunately, we have moved forward with another candidate</span>
+        {% else %}
+            <span class="text-muted">Unknown Status</span>
+        {% endif %}
+    </h2>
+    <hr>
+    <p><strong>Full Name:</strong> {{ application.full_name }}</p>
+    <p><strong>Email:</strong> {{ application.email }}</p>
+    <p><strong>Phone:</strong> {{ application.phone }}</p>
+    <p><strong>Address:</strong> {{ application.address }}</p>
+    <p><strong>Short Description:</strong> {{ application.short_description }}</p>
+    <p><strong>Last 5 Jobs Experience:</strong> {{ application.last_jobs }}</p>
+    <p><strong>Cover Letter:</strong></p>
+    <p>{{ application.cover_letter }}</p>
+    <p><strong>Applied on:</strong> {{ application.applied_at }}</p>
+</div>
+{% endblock %}

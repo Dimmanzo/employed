@@ -1,39 +1,42 @@
-<!-- dashboard/view_application_employer.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>Application for {{ application.job.title }} -
-        {% if application.status == 'under_review' %}
-            <span>Under Review</span>
-        {% elif application.status == 'accepted' %}
-            <span class="text-success">Accepted</span>
-        {% elif application.status == 'rejected' %}
-            <span class="text-danger">Rejected</span>
-        {% else %}
-            <span class="text-muted">Unknown Status</span>
-        {% endif %}
-    </h2>
-    <hr>
 
-    <h4>Applicant Details</h4>
-    <p><strong>Full Name:</strong> {{ application.applicant.get_full_name }}</p>
-    <p><strong>Email:</strong> {{ application.applicant.email }}</p>
-    <p><strong>Phone:</strong> {{ application.phone }}</p>
-    <p><strong>Address:</strong> {{ application.address }}</p>
+    <div class="container mt-5">
+        <h2>{{ application.applicant.username }} Application for {{ application.job.title }} -
+            {% if application.status == 'under_review' %}
+                <span>Under Review</span>
+            {% elif application.status == 'accepted' %}
+                <span class="text-success">Accepted</span>
+            {% elif application.status == 'rejected' %}
+                <span class="text-danger">Rejected</span>
+            {% else %}
+                <span class="text-muted">Unknown Status</span>
+            {% endif %}
+        </h2>
+        <hr>
 
-    <h4>Application</h4>
-    <p><strong>Cover Letter:</strong> {{ application.cover_letter }}</p>
-    <p><strong>Skills and Experience:</strong> {{ application.short_description }}</p>
-    <p><strong>Last 5 Jobs:</strong> {{ application.last_jobs }}</p>
-    <hr>
+        <h4 class="mb-3">Applicant Details</h4>
+        <p><strong>Full Name:</strong> {{ application.full_name }}</p>
+        <p><strong>Email:</strong> {{ application.applicant.email }}</p>
+        <p><strong>Phone:</strong> {{ application.phone }}</p>
+        <p><strong>Address:</strong> {{ application.address }}</p>
 
-    <form method="POST">
-        {% csrf_token %}
-        <div class="d-flex justify-content-start">
-            <button type="submit" name="accept" class="btn btn-success me-2">Accept Application</button>
-            <button type="submit" name="reject" class="btn btn-danger">Reject Application</button>
-        </div>
-    </form>
-</div>
+        <h4 class="mb-3">Application</h4>
+        <p><strong>Cover Letter:</strong></p>
+        <p>{{ application.cover_letter }}</p>
+        <p><strong>Skills and Experience:</strong></p> 
+        <p>{{ application.short_description }}</p>
+        <p><strong>Last 5 Jobs:</strong></p>
+        <p>{{ application.last_jobs }}</p>
+        <hr>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-flex justify-content-start">
+                <button type="submit" name="accept" class="btn btn-success me-2 mb-5">Accept Application</button>
+                <button type="submit" name="reject" class="btn btn-danger mb-5">Reject Application</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

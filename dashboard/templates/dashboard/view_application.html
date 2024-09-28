@@ -6,9 +6,11 @@
         {% if application.status == 'under_review' %}
             <span>Under Review</span>
         {% elif application.status == 'accepted' %}
-            <span class="text-success">Accepted - Congratulations! You have been accepted. The employer will contact you soon.</span>
+            <span class="text-success">Accepted</span>
+            <p class="text-success">You have been accepted! The employer will contact you soon.</p>
         {% elif application.status == 'rejected' %}
-            <span class="text-danger">Rejected - Unfortunately, we have moved forward with another candidate</span>
+            <span class="text-danger">Rejected</span>
+            <p class="text-danger">Unfortunately, we have moved forward with another candidate.</p>
         {% else %}
             <span class="text-muted">Unknown Status</span>
         {% endif %}
@@ -18,10 +20,12 @@
     <p><strong>Email:</strong> {{ application.email }}</p>
     <p><strong>Phone:</strong> {{ application.phone }}</p>
     <p><strong>Address:</strong> {{ application.address }}</p>
-    <p><strong>Short Description:</strong> {{ application.short_description }}</p>
-    <p><strong>Last 5 Jobs Experience:</strong> {{ application.last_jobs }}</p>
+    <p><strong>Short Description:</strong></p>
+    <p>{{ application.short_description }}</p>
+    <p><strong>Last 5 Jobs Experience:</strong></p>
+    <p>{{ application.last_jobs }}</p>
     <p><strong>Cover Letter:</strong></p>
     <p>{{ application.cover_letter }}</p>
-    <p><strong>Applied on:</strong> {{ application.applied_at }}</p>
+    <p class="mb-5"><strong>Applied on:</strong> {{ application.applied_at }}</p>
 </div>
 {% endblock %}

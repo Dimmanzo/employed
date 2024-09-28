@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from jobs.models import Job
 from .models import Application
 
@@ -39,16 +40,17 @@ def view_application(request, application_id):
 @login_required
 def view_application_employer(request, application_id):
     application = get_object_or_404(Application, id=application_id, job__employer=request.user)
-    
+
     if request.method == 'POST':
         if 'accept' in request.POST:
             application.status = 'accepted'
+            application.save()
             messages.success(request, f'Application from {application.applicant.username} has been accepted.')
         elif 'reject' in request.POST:
             application.status = 'rejected'
-            messages.error(request, f'Application from {application.applicant.username} has been rejected.')
-        
-        application.save()
-        return redirect('dashboard')
+            application.save()
+            messages.error(request, f'Application from {application.applicant.username} has been rejected.', extra_tags='danger')
+
+        return redirect('view_application_employer', application_id=application.id)
 
     return render(request, 'dashboard/view_application_employer.html', {'application': application})

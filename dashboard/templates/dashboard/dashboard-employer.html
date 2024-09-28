@@ -31,8 +31,16 @@
                     <div class="me-auto">
                         {{ application.applicant.username }} applied for - <a href="#">{{ application.job.title }}</a>
                     </div>
-                    <div>
-                        <a href="{% url 'view_application_employer' application.id %}" class="btn btn-sm btn-primary mx-2 btn-dash">View</a>
+                    <div class="d-flex align-items-center">
+                        {% if application.status == 'accepted' %}
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                        {% elif application.status == 'rejected' %}
+                            <i class="fas fa-times-circle text-danger me-2"></i>
+                        {% else %}
+                            <i class="fas fa-hourglass-half text-warning me-2"></i>
+                        {% endif %}
+                        
+                        <a href="{% url 'view_application_employer' application.id %}" class="btn btn-sm btn-primary btn-dash">View</a>
                     </div>
                 </li>
                 {% endfor %}

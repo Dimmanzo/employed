@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4">
+                <!-- Job Status Confirmation -->
+                <h3 class="text-center mb-4">Job Status Update</h3>
+                <p class="text-center fs-5">What would you like to do with the job:</p>
+                <h4 class="text-center text-danger">"{{ job.title }}"</h4>
+                <hr>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <button type="submit" name="open" class="btn btn-success px-4">Open Job</button>
+                        <button type="submit" name="close" class="btn btn-warning px-4">Close Job</button>                       
+                        <button type="submit" name="delete" class="btn btn-danger px-4">Delete Job</button>
+                        <a href="{% url 'dashboard' %}" class="btn btn-secondary px-4">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

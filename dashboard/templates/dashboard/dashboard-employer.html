@@ -13,9 +13,14 @@
             <ul class="list-unstyled">
                 {% for job in user_jobs %}
                 <li class="d-flex align-items-center">
-                    <a href="#" class="dash-job-link me-auto">{{ job.title }}</a><span>{{ job.status }}</span>   
-                    <a href="#" class="btn btn-sm btn-warning mx-2 btn-dash">Edit</a>
-                    <a href="#" class="btn btn-sm btn-danger btn-dash">Remove</a>
+                    <a href="#" class="dash-job-link me-auto">{{ job.title }}</a>
+                    {% if job.status == 'open' %}
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                    {% elif job.status == 'closed' %}
+                        <i class="fas fa-times-circle text-danger me-2"></i>
+                    {% endif %}
+                    <a href="{% url 'edit_job' job.id %}" class="btn btn-sm btn-warning mx-2 btn-dash">Edit</a>
+                    <a href="{% url 'update_job' job.id %}" class="btn btn-sm btn-danger btn-dash">Update Status</a>
                 </li>
                 {% endfor %}
             </ul>

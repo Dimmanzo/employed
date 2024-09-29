@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Edit Job: {{ job.title }}</h2>
+
+            <!-- Form to edit the job -->
+            <form method="POST" action="{% url 'edit_job' job.id %}">
+                {% csrf_token %}
+
+                <!-- Job Title -->
+                <div class="mb-3">
+                    <label for="id_title" class="form-label">Job Title</label>
+                    <input type="text" name="title" id="id_title" class="form-control" value="{{ form.title.value }}" required>
+                </div>
+
+                <!-- Job Description -->
+                <div class="mb-3">
+                    <label for="id_description" class="form-label">Job Description</label>
+                    <textarea name="description" id="id_description" class="form-control" rows="5" required>{{ form.description.value | striptags }}</textarea>
+                </div>
+
+                <!-- Excerpt -->
+                <div class="mb-3">
+                    <label for="id_excerpt" class="form-label">Job Excerpt</label>
+                    <textarea name="excerpt" id="id_excerpt" class="form-control" rows="3" required>{{ form.excerpt.value }}</textarea>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="id_location" class="form-label">Location</label>
+                    <input type="text" name="location" id="id_location" class="form-control" value="{{ form.location.value }}" required>
+                </div>
+
+                <!-- Job Type -->
+                <div class="mb-3">
+                    <label for="id_job_type" class="form-label">Job Type</label>
+                    <select name="job_type" id="id_job_type" class="form-select">
+                        <option value="">Select Job Type</option>
+                        <option value="full_time" {% if form.job_type.value == "full_time" %}selected{% endif %}>Full Time</option>
+                        <option value="part_time" {% if form.job_type.value == "part_time" %}selected{% endif %}>Part Time</option>
+                        <option value="contract" {% if form.job_type.value == "contract" %}selected{% endif %}>Contract</option>
+                    </select>
+                </div>
+
+                <!-- Work Type -->
+                <div class="mb-3">
+                    <label for="id_work_type" class="form-label">Work Type</label>
+                    <select name="work_type" id="id_work_type" class="form-select">
+                        <option value="">Select Work Type</option>
+                        <option value="remote" {% if form.work_type.value == "remote" %}selected{% endif %}>Remote</option>
+                        <option value="on_site" {% if form.work_type.value == "on_site" %}selected{% endif %}>On-site</option>
+                        <option value="hybrid" {% if form.work_type.value == "hybrid" %}selected{% endif %}>Hybrid</option>
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="submit" class="btn btn-primary me-2 mb-5">Update Job</button>
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary mb-5">Cancel</a>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

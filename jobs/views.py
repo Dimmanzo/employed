@@ -91,3 +91,43 @@ def apply_for_job(request, slug):
         return redirect('dashboard')
 
     return render(request, 'jobs/job_detail.html', {'job': job})
+
+
+@login_required
+def edit_job(request, job_id):
+    job = get_object_or_404(Job, id=job_id, employer=request.user)
+
+    if request.method == 'POST':
+        form = JobForm(request.POST, instance=job)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'The job "{job.title}" was successfully updated.')
+            return redirect('dashboard')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = JobForm(instance=job)
+
+    return render(request, 'jobs/edit_job.html', {'form': form, 'job': job})
+
+
+@login_required
+def update_job(request, job_id):
+    job = get_object_or_404(Job, id=job_id, employer=request.user)
+
+    if request.method == 'POST':
+        if 'open' in request.POST:
+            job.status = 'open'
+            job.save()
+            messages.success(request, f'The job "{job.title}" has been successfully opened.')
+        elif 'close' in request.POST:
+            job.status = 'closed'
+            job.save()
+            messages.success(request, f'The job "{job.title}" has been successfully closed.')
+        elif 'delete' in request.POST:
+            job.delete()
+            messages.success(request, f'The job "{job.title}" was successfully removed.')
+        
+        return redirect('dashboard')
+
+    return render(request, 'jobs/update_job.html', {'job': job})

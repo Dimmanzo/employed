@@ -28,7 +28,8 @@
                             <i class="fas fa-question-circle text-muted me-2"></i>
                         {% endif %}
 
-                        <a href="{% url 'view_application' application.id %}" class="btn btn-sm btn-primary btn-dash">View</a>
+                        <a href="{% url 'view_application' application.id %}" class="btn btn-sm btn-primary btn-dash me-2">View</a>
+                        <a href="{% url 'withdraw_application' application.id %}" class="btn btn-sm btn-danger btn-dash">Withdraw</a>
                     </div>
                 </li>
                 {% endfor %}

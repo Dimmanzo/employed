@@ -130,4 +130,4 @@ def update_job(request, job_id):
         
         return redirect('dashboard')
 
-    return render(request, 'jobs/update_job.html', {'job': job})
+    return render(request, 'jobs/update_job_status.html', {'job': job})

@@ -54,3 +54,16 @@ def view_application_employer(request, application_id):
         return redirect('view_application_employer', application_id=application.id)
 
     return render(request, 'dashboard/view_application_employer.html', {'application': application})
+
+
+@login_required
+def withdraw_application(request, application_id):
+    application = get_object_or_404(Application, id=application_id, applicant=request.user)
+
+    if request.method == 'POST':
+        if 'withdraw' in request.POST:
+            application.delete()
+            messages.success(request, "Your application has been withdrawn.")
+            return redirect('dashboard')
+
+    return render(request, 'dashboard/withdraw_application.html', {'application': application})

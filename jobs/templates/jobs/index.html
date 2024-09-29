@@ -2,87 +2,105 @@
 
 {% block content %}
 <div class="container-fluid mt-5">
-    
+
     <!-- Filter Jobs Panel -->
     <div class="row mb-4">
         <div class="col-12">
             <h5>Filter Jobs</h5>
-            <form method="GET" action="{% url 'home' %}" class="row g-3 align-items-end">
+            <form method="GET" action="{% url 'home' %}">
+                <div class="row g-3">
 
-                <!-- Job Type Filter -->
-                <div class="col-md-3">
-                    <label for="job_type" class="form-label">Job Type</label>
-                    <select name="job_type" id="job_type" class="form-select" style="height: 38px;">
-                        <option value="">All</option>
-                        <option value="full_time" {% if request.GET.job_type == "full_time" %}selected{% endif %}>Full Time</option>
-                        <option value="part_time" {% if request.GET.job_type == "part_time" %}selected{% endif %}>Part Time</option>
-                        <option value="contract" {% if request.GET.job_type == "contract" %}selected{% endif %}>Contract</option>
-                    </select>
+                    <!-- Search Filter -->
+                    <div class="col-md-3">
+                        <label for="search" class="form-label">Search by keyword</label>
+                        <input type="text" name="search" id="search" class="form-control"
+                            placeholder="Search by title or description" value="{{ request.GET.search }}"
+                            style="height: 38px;">
+                    </div>
+
+                    <!-- Job Type Filter -->
+                    <div class="col-md-3">
+                        <label for="job_type" class="form-label">Job Type</label>
+                        <select name="job_type" id="job_type" class="form-select">
+                            <option value="">All</option>
+                            <option value="full_time" {% if request.GET.job_type == "full_time" %}selected{% endif %}>
+                                Full Time</option>
+                            <option value="part_time" {% if request.GET.job_type == "part_time" %}selected{% endif %}>
+                                Part Time</option>
+                            <option value="contract" {% if request.GET.job_type == "contract" %}selected{% endif %}>
+                                Contract</option>
+                        </select>
+                    </div>
+
+                    <!-- Work Type Filter -->
+                    <div class="col-md-3">
+                        <label for="work_type" class="form-label">Work Type</label>
+                        <select name="work_type" id="work_type" class="form-select">
+                            <option value="">All</option>
+                            <option value="remote" {% if request.GET.work_type == "remote" %}selected{% endif %}>Remote
+                            </option>
+                            <option value="on_site" {% if request.GET.work_type == "on_site" %}selected{% endif %}>
+                                On-Site</option>
+                            <option value="hybrid" {% if request.GET.work_type == "hybrid" %}selected{% endif %}>Hybrid
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Location Filter -->
+                    <div class="col-md-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="location" id="location" class="form-control"
+                            placeholder="Enter location" value="{{ request.GET.location }}" style="height: 38px;">
+                    </div>
+
+                    <!-- Apply and Reset Buttons -->
+                    <div class="col-md-3 d-flex align-items-end" style="gap: 10px;">
+                        <button type="submit" class="btn btn-primary w-50" style="height: 38px;">Apply</button>
+                        <a href="{% url 'home' %}" class="btn btn-secondary w-50" style="height: 38px;">Reset</a>
+                    </div>
                 </div>
-
-                <!-- Work Type Filter -->
-                <div class="col-md-3">
-                    <label for="work_type" class="form-label">Work Type</label>
-                    <select name="work_type" id="work_type" class="form-select" style="height: 38px;">
-                        <option value="">All</option>
-                        <option value="remote" {% if request.GET.work_type == "remote" %}selected{% endif %}>Remote</option>
-                        <option value="on_site" {% if request.GET.work_type == "on_site" %}selected{% endif %}>On-Site</option>
-                        <option value="hybrid" {% if request.GET.work_type == "hybrid" %}selected{% endif %}>Hybrid</option>
-                    </select>
-                </div>
-
-                <!-- Location Filter -->
-                <div class="col-md-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" name="location" id="location" class="form-control" placeholder="Enter location" value="{{ request.GET.location }}" style="height: 38px;">
-                </div>
-
-                <!-- Apply and Reset Buttons -->
-                <div class="col-md-3 d-flex align-items-end" style="gap: 10px;">
-                    <button type="submit" class="btn btn-primary w-50" style="height: 38px;">Apply</button>
-                    <a href="{% url 'home' %}" class="btn btn-secondary w-50" style="height: 38px;">Reset</a>
-                </div>
-
-            </form>
         </div>
+        </form>
     </div>
+</div>
 
-    <!-- Job Listings Column -->
-    <div class="row">
-        {% for job in job_list %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <a href="{% url 'job_detail' slug=job.slug %}" class="job-link">
-                        <h2 class="card-title">{{ job.title }}</h2>
-                    </a>
-                    <hr />
-                    <p class="card-text">{{ job.excerpt }}</p>
-                    <hr />
-                    <p class="card-text">{{ job.location }} | {{ job.get_work_type_display }} | {{ job.get_job_type_display }}</p>
-                    <p class="card-text text-muted h6 text-end">{{ job.created_at }}</p>
-                </div>
+<!-- Job Listings Column -->
+<div class="row">
+    {% for job in job_list %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <a href="{% url 'job_detail' slug=job.slug %}" class="job-link">
+                    <h2 class="card-title">{{ job.title }}</h2>
+                </a>
+                <hr />
+                <p class="card-text">{{ job.excerpt }}</p>
+                <hr />
+                <p class="card-text">{{ job.location }} | {{ job.get_work_type_display }} |
+                    {{ job.get_job_type_display }}</p>
+                <p class="card-text text-muted h6 text-end">{{ job.created_at }}</p>
             </div>
         </div>
-        {% if forloop.counter|divisibleby:3 %}
     </div>
-    <div class="row">
-        {% endif %}
-        {% endfor %}
-    </div>
-
-    <!-- Pagination -->
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> PREV &raquo;</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+    {% if forloop.counter|divisibleby:3 %}
+</div>
+<div class="row">
     {% endif %}
+    {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> PREV &raquo;</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 </div>
 {% endblock %}

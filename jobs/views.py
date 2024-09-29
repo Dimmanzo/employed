@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views import generic
+from django.db.models import Q
 from dashboard.models import Application
 from .models import Job
 from .forms import JobForm
@@ -23,6 +24,7 @@ class JobList(generic.ListView):
         job_type = self.request.GET.get('job_type')
         work_type = self.request.GET.get('work_type')
         location = self.request.GET.get('location')
+        search_query = self.request.GET.get('search')
 
         # Apply filters
         if job_type:
@@ -31,6 +33,12 @@ class JobList(generic.ListView):
             queryset = queryset.filter(work_type=work_type)
         if location:
             queryset = queryset.filter(location__icontains=location)
+        if search_query:
+            queryset = queryset.filter(
+                Q(title__icontains=search_query) | 
+                Q(description__icontains=search_query) |
+                Q(excerpt__icontains=search_query)
+            )
 
         return queryset
 

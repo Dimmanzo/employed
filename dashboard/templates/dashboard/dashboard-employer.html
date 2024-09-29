@@ -13,7 +13,7 @@
             <ul class="list-unstyled">
                 {% for job in user_jobs %}
                 <li class="d-flex align-items-center">
-                    <a href="#" class="dash-job-link me-auto">{{ job.title }}</a>
+                    <a href="{% url 'job_detail' slug=job.slug %}" class="dash-job-link me-auto">{{ job.title }}</a>
                     {% if job.status == 'open' %}
                         <i class="fas fa-check-circle text-success me-2"></i>
                     {% elif job.status == 'closed' %}
@@ -34,7 +34,7 @@
                 {% for application in job_applications %}
                 <li class="d-flex align-items-center justify-content-between">
                     <div class="me-auto">
-                        {{ application.applicant.username }} applied for - <a href="#">{{ application.job.title }}</a>
+                        {{ application.applicant.username }} applied for - <a href="{% url 'job_detail' slug=application.job.slug %}">{{ application.job.title }}</a>
                     </div>
                     <div class="d-flex align-items-center">
                         {% if application.status == 'accepted' %}

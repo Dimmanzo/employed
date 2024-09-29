@@ -72,6 +72,11 @@ def apply_for_job(request, slug):
     # Retrieve the job based on the slug
     job = get_object_or_404(Job, slug=slug)
 
+    # Prevent application if the job is closed
+    if job.status == 'closed':
+        messages.error(request, "This job is closed and no longer accepting applications.")
+        return redirect('job_detail', slug=slug)
+
     # Check for POST request
     if request.method == 'POST':
         full_name = request.POST.get('full_name')

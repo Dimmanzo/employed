@@ -6,6 +6,8 @@
 {% if form.errors %}
 <div class="alert alert-danger mt-4">
     <ul>
+
+        <!-- Loop through the form fields to show errors for each field -->
         {% for field in form %}
         {% if field.errors %}
         <li>{{ field.label }}: {{ field.errors|striptags }}</li>
@@ -16,6 +18,7 @@
 </div>
 {% endif %}
 
+<!-- Login Section -->
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">

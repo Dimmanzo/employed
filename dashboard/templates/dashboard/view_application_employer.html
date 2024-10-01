@@ -2,7 +2,10 @@
 
 {% block content %}
 
+    <!-- Main container for the application details and actions -->
     <div class="container mt-5">
+
+         <!-- Display the applicant's username and job title, with the current status of the application -->
         <h2>{{ application.applicant.username }} Application for {{ application.job.title }} -
             {% if application.status == 'under_review' %}
                 <span>Under Review</span>
@@ -16,12 +19,14 @@
         </h2>
         <hr>
 
+        <!-- Applicant Details Section -->
         <h4 class="mb-3">Applicant Details</h4>
         <p><strong>Full Name:</strong> {{ application.full_name }}</p>
         <p><strong>Email:</strong> {{ application.applicant.email }}</p>
         <p><strong>Phone:</strong> {{ application.phone }}</p>
         <p><strong>Address:</strong> {{ application.address }}</p>
 
+        <!-- Application Section with Cover Letter, Skills, and Last Jobs -->
         <h4 class="mb-3">Application</h4>
         <p><strong>Cover Letter:</strong></p>
         <p>{{ application.cover_letter }}</p>
@@ -31,8 +36,11 @@
         <p>{{ application.last_jobs }}</p>
         <hr>
 
+        <!-- Form for accepting or rejecting the application -->
         <form method="POST">
             {% csrf_token %}
+
+            <!-- Buttons for Accepting or Rejecting the application -->
             <div class="d-flex justify-content-start">
                 <button type="submit" name="accept" class="btn btn-success me-2 mb-5">Accept Application</button>
                 <button type="submit" name="reject" class="btn btn-danger mb-5">Reject Application</button>

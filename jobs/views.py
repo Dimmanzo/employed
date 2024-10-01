@@ -35,7 +35,7 @@ class JobList(generic.ListView):
             queryset = queryset.filter(location__icontains=location)
         if search_query:
             queryset = queryset.filter(
-                Q(title__icontains=search_query) | 
+                Q(title__icontains=search_query) |
                 Q(description__icontains=search_query) |
                 Q(excerpt__icontains=search_query)
             )
@@ -140,7 +140,7 @@ def update_job(request, job_id):
         elif 'delete' in request.POST:
             job.delete()
             messages.success(request, f'The job "{job.title}" was successfully removed.')
-        
+
         return redirect('dashboard')
 
     return render(request, 'jobs/update_job_status.html', {'job': job})

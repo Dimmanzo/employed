@@ -4,6 +4,7 @@ from django.contrib import messages
 from jobs.models import Job
 from .models import Application
 
+
 # Create your views here.
 @login_required
 def dashboard(request):
@@ -22,15 +23,15 @@ def dashboard(request):
 @login_required
 def view_application(request, application_id):
     application = get_object_or_404(Application, id=application_id)
-    
+
     # Job Seekers view their own application
     if request.user == application.applicant:
         return render(request, 'dashboard/view_application.html', {'application': application})
-    
+
     # Employers view applications for jobs they posted
     elif request.user == application.job.employer:
         return render(request, 'dashboard/view_application_employer.html', {'application': application})
-    
+
     # Show an error, if not job seeker or the employer
     else:
         messages.error(request, "You do not have permission to view this application.")

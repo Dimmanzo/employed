@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.apps import apps
 
+
 class Application(models.Model):
     APPLICATION_STATUS_CHOICES = (
         ('under_review', 'Under Review'),

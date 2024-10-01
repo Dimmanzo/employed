@@ -1,13 +1,23 @@
 {% load static %}
-
 {% url 'home' as home_url %}
 
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
 <head>
+    <!-- Meta information for character set and responsive behavior -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Employed - A job board platform where employers post jobs and job seekers find opportunities. Apply, manage applications, and more.">
+    <meta name="keywords" content="jobs, job board, employment, apply for jobs, job seekers, employers, job applications">
+    <meta name="author" content="Employed">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
+
+    <!-- Page Title -->
     <title>{% block title %}Employed - Your Job Board{% endblock %}</title>
 
     <!-- Google Fonts -->
@@ -30,9 +40,13 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">Employed</a>
+
+            <!-- Mobile menu button (hamburger) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -41,14 +55,17 @@
                 </ul>
                 <ul class="navbar-nav ms-auto align-items-center">
                     {% if user.is_authenticated %}
-                    <!-- only visible on large screens -->
+
+                    <!-- Only visible on large screens -->
                     <li class="nav-item d-none d-lg-block">
                         <span class="text-white">Logged in as: </span>
                         <span class="username">{{ user.username }}</span>
                     </li>
+
                     <!-- Separator for Large Screen -->
                     <span class="nav-link-separator d-none d-lg-block">|</span>
 
+                    <!-- Navbar links -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
@@ -73,11 +90,11 @@
         </div>
     </nav>
 
-
-
+    <!-- Main content area -->
     <main class="flex-shrink-0">
         <div class="container">
 
+            <!-- Messages (e.g., success, error alerts) -->
             {% if messages %}
             <div class="container mt-4">
                 {% for message in messages %}
@@ -102,6 +119,7 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS for interactivity and components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -66,7 +66,7 @@ During the design phase, wireframes were created to ensure the user interface wo
 - **Wireframes** were designed using **Balsamiq**.
 
   ![Wireframe of homepage](media/wireframe.png)
-  _PC - Homepage, Mobile - Register Page wireframes_
+  _PC - Homepage, Mobile - Register wireframes_
 
 ---
 
@@ -189,17 +189,6 @@ To fork the repository:
 
 ---
 
-## Admin Credentials
-
-For assessment purposes, the following admin credentials have been created:
-
-- **Username**: minda0822
-- **Password**: codeinstitute
-
-These credentials can be used to access the admin panel and manage the backend of the project.
-
----
-
 ## Credits
 
 - **Code**: Help with Django best practices from the [Django documentation](https://docs.djangoproject.com/), Some ideas were taken from [Code Institute](https://codeinstitute.net/) - blog walktrough project.
@@ -208,3 +197,4 @@ These credentials can be used to access the admin panel and manage the backend o
 - **Balsamiq**: For creating wireframes to visualize the design before development [Balsamiq](https://balsamiq.com/).
 - **Google Fonts**: For typography styling used throughout the website [Google Fonts](https://fonts.google.com/).
 - **Heroku**: For cloud deployment and hosting [Heroku](https://www.heroku.com/).
+- **dbdiagram.io**: For database structure scheme [dbdiagram.io](https://dbdiagram.io/).

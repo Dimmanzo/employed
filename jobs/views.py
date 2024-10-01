@@ -8,7 +8,11 @@ from .models import Job
 from .forms import JobForm
 
 
-# View to display and filter jobs
+"""
+This view handles displaying and filtering the list of jobs on the homepage.
+The view uses Django's ListView to paginate and retrieve job data. Filters are applied based on the user's 
+input from the front-end, including search, job type, work type, and location.
+"""
 class JobList(generic.ListView):
     model = Job
     template_name = "jobs/index.html"
@@ -43,13 +47,19 @@ class JobList(generic.ListView):
         return queryset
 
 
-# View to show job details
+"""
+This view renders the details of a job when the user clicks on a job post.
+It uses the slug to identify the job and passes it to the template for display.
+"""
 def job_detail(request, slug):
     job = get_object_or_404(Job, slug=slug)
     return render(request, 'jobs/job_detail.html', {'job': job})
 
 
-# View to handle creating a new job
+"""
+This view handles the creation of a new job post by the employer.
+It checks if the request is POST and, if valid, saves the job, associating it with the employer who created it.
+"""
 @login_required
 def create_job(request):
     if request.method == 'POST':
@@ -67,6 +77,11 @@ def create_job(request):
     return render(request, 'jobs/create_job.html', {'form': form})
 
 
+"""
+This view allows job seekers to apply for a specific job.
+It retrieves the job based on the slug and allows the user to fill in their details, which are saved as an Application object.
+The view prevents applications to closed jobs.
+"""
 @login_required
 def apply_for_job(request, slug):
     # Retrieve the job based on the slug
@@ -106,6 +121,10 @@ def apply_for_job(request, slug):
     return render(request, 'jobs/job_detail.html', {'job': job})
 
 
+"""
+This view allows employers to edit an existing job post. 
+The job must belong to the employer, and if the form is valid, the job is updated.
+"""
 @login_required
 def edit_job(request, job_id):
     job = get_object_or_404(Job, id=job_id, employer=request.user)
@@ -124,6 +143,10 @@ def edit_job(request, job_id):
     return render(request, 'jobs/edit_job.html', {'form': form, 'job': job})
 
 
+"""
+This view allows employers to update the status of a job (open, close, or delete).
+It verifies that the job belongs to the logged-in employer before making changes.
+"""
 @login_required
 def update_job(request, job_id):
     job = get_object_or_404(Job, id=job_id, employer=request.user)

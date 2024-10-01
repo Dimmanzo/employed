@@ -3,12 +3,12 @@ from django import forms
 from .models import Job
 
 
-"""
-Form for posting a new job.
-This class defines the form fields and their associated widgets for creating a job post. 
-It also overrides the save method to set the default status to 'open' and generate a unique slug based on the job title.
-"""
 class JobForm(forms.ModelForm):
+    """
+    Form for posting a new job.
+    This class defines the form fields and their associated widgets for creating a job post. 
+    It also overrides the save method to set the default status to 'open' and generate a unique slug based on the job title.
+    """
     class Meta:
         model = Job
         fields = ['title', 'description', 'excerpt', 'location', 'job_type', 'work_type']
@@ -19,11 +19,11 @@ class JobForm(forms.ModelForm):
             'excerpt': forms.Textarea(attrs={'rows': 3})
         }
 
-    """
-    Overrides the default save method.
-    Before saving, this method sets the job status to 'open' and ensures the slug is unique.
-    """
     def save(self, commit=True):
+        """
+        Overrides the default save method.
+        Before saving, this method sets the job status to 'open' and ensures the slug is unique.
+        """
         job = super().save(commit=False)
         job.status = 'open'
 
@@ -36,11 +36,11 @@ class JobForm(forms.ModelForm):
             job.save()
         return job
 
-    """
-    Generates a unique slug for a job post based on the title.
-    If a job with the same slug exists, appends a number to make it unique.
-    """
     def generate_unique_slug(self, title):
+        """
+        Generates a unique slug for a job post based on the title.
+        If a job with the same slug exists, appends a number to make it unique.
+        """
         slug = slugify(title)
         unique_slug = slug
         num = 1

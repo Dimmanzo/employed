@@ -5,12 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegistrationForm
 
 
-# Create your views here.
-def profile_view(request):
-    return render(request, 'profiles/profile.html')
-
-
 def register(request):
+    """
+    Handles user registration. Saves the role from the registration form and logs in the user after successful registration.
+    """
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -26,6 +24,9 @@ def register(request):
 
 
 def login_user(request):
+    """
+    Handles user login using Django's AuthenticationForm.
+    """
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -42,6 +43,9 @@ def login_user(request):
 
 
 def logout_user(request):
+    """
+    Logs out the user and redirects to the homepage with a success message.
+    """
     logout(request)
     messages.success(request, 'You have successfully logged out.')
     return redirect('home')

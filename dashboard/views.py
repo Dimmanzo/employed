@@ -5,13 +5,14 @@ from jobs.models import Job
 from .models import Application
 
 
-"""
-Dashboard view: Displays different dashboards for employers and job seekers.
-Employers can view the jobs they posted and applications to those jobs.
-Job seekers can view their own job applications.
-"""
 @login_required
 def dashboard(request):
+    """
+    Dashboard view: Displays different dashboards for employers and job seekers.
+    Employers can view the jobs they posted and applications to those jobs.
+    Job seekers can view their own job applications.
+    """
+    
     # If the user is an employer, display the employer dashboard
     if request.user.profile.role == 'employer':
         # Get jobs posted by the employer
@@ -28,12 +29,13 @@ def dashboard(request):
         return render(request, 'dashboard/dashboard-jobseeker.html', {'user_applications': user_applications})
 
 
-"""
-View a specific application: The logic allows both job seekers and employers to view the application.
-Job seekers can view their own applications, while employers can view applications for the jobs they posted.
-"""
 @login_required
 def view_application(request, application_id):
+    """
+    View a specific application: The logic allows both job seekers and employers to view the application.   
+    Job seekers can view their own applications, while employers can view applications for the jobs they posted.
+    """
+
     # Retrieve the specific application by its ID
     application = get_object_or_404(Application, id=application_id)
 
@@ -51,12 +53,13 @@ def view_application(request, application_id):
         return redirect('dashboard')
 
 
-"""
-Employers' view of applications: Allows the employer to accept or reject applications.
-Employers can view details of each application for the jobs they posted, and can take action to accept or reject applications.
-"""
 @login_required
 def view_application_employer(request, application_id):
+    """
+    Employers' view of applications: Allows the employer to accept or reject applications.
+    Employers can view details of each application for the jobs they posted, and can take action to accept or reject applications.
+    """
+
     # Ensure the application belongs to a job posted by the logged-in employer
     application = get_object_or_404(Application, id=application_id, job__employer=request.user)
 
@@ -79,12 +82,13 @@ def view_application_employer(request, application_id):
     return render(request, 'dashboard/view_application_employer.html', {'application': application})
 
 
-"""
-Withdraw an application: Allows job seekers to withdraw their applications.
-Job seekers can confirm and withdraw an application they no longer wish to pursue.
-"""
 @login_required
 def withdraw_application(request, application_id):
+    """
+    Withdraw an application: Allows job seekers to withdraw their applications.
+    Job seekers can confirm and withdraw an application they no longer wish to pursue.
+    """
+
     # Ensure the application belongs to the logged-in job seeker
     application = get_object_or_404(Application, id=application_id, applicant=request.user)
 

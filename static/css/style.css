@@ -52,8 +52,9 @@ body {
     transition: box-shadow 0.3s ease;
 }
 
-.job-link {
+.stretched-link {
     text-decoration: none !important;
+    color: #33475B;
 }
 
 .job-link:hover {

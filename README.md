@@ -23,10 +23,9 @@ It’s designed to make the process of finding or posting jobs smooth, efficient
 - [Version Control and Commits](#version-control-and-commits)
 - [Security Considerations](#security-considerations)
 - [Deployment](#deployment)
-- [Technologies Used](#technologies-used)
+- [Technologies and Tools Used](#technologies-and-tools-used)
 - [Cloning and Forking](#cloning-and-forking)
 - [Credits](#credits)
-- [Admin Credentials](#admin-credentials)
 
 ---
 
@@ -142,12 +141,8 @@ Automated testing will be implemented using Django’s built-in testing framewor
 
 The performance and accessibility of the website were tested using **Google Lighthouse**.
 
-| Category        | Score |
-| --------------- | ----- |
-| Performance     | 90    |
-| Accessibility   | 98    |
-| Best Practices  | 100   |
-| SEO             | 92    |
+![Lighthouse](media/lighthouse.png)  
+_Performance 97, Accessibility 100, Best Practices 100, SEO 100_
 
 ---
 

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="container mt-5">
     <h2 class="mb-4">Dashboard</h2>
+
     <!-- Job Posts Section -->
     <div class="card mb-4">
         <div class="card-body">
@@ -10,46 +10,56 @@
                 <h3>Your Job Posts</h3>
                 <a href="{% url 'create_job' %}" class="btn btn-primary">Post a New Job</a>
             </div>
-            <ul class="list-unstyled">
-                {% for job in user_jobs %}
-                <li class="d-flex align-items-center">
-                    <a href="{% url 'job_detail' slug=job.slug %}" class="dash-job-link me-auto">{{ job.title }}</a>
-                    {% if job.status == 'open' %}
-                        <i class="fas fa-check-circle text-success me-2"></i>
-                    {% elif job.status == 'closed' %}
-                        <i class="fas fa-times-circle text-danger me-2"></i>
-                    {% endif %}
-                    <a href="{% url 'edit_job' job.id %}" class="btn btn-sm btn-warning mx-2 btn-dash">Edit</a>
-                    <a href="{% url 'update_job' job.id %}" class="btn btn-sm btn-danger btn-dash">Update Status</a>
-                </li>
-                {% endfor %}
-            </ul>
+            <!-- Check if user has jobs -->
+            {% if user_jobs %}
+                <ul class="list-unstyled">
+                    {% for job in user_jobs %}
+                        <li class="d-flex align-items-center">
+                            <a href="{% url 'job_detail' slug=job.slug %}" class="dash-job-link me-auto">{{ job.title }}</a>
+                            {% if job.status == 'open' %}
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                            {% elif job.status == 'closed' %}
+                                <i class="fas fa-times-circle text-danger me-2"></i>
+                            {% endif %}
+                            <a href="{% url 'edit_job' job.id %}" class="btn btn-sm btn-warning mx-2 btn-dash">Edit</a>
+                            <a href="{% url 'update_job' job.id %}" class="btn btn-sm btn-danger btn-dash">Update Status</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You don't have any job posts yet.</p>
+            {% endif %}
         </div>
     </div>
+
     <!-- Applications Section -->
     <div class="card">
         <div class="card-body">
             <h3>Job Applications</h3>
-            <ul class="list-unstyled">
-                {% for application in job_applications %}
-                <li class="d-flex align-items-center justify-content-between">
-                    <div class="me-auto">
-                        {{ application.applicant.username }} applied for - <a href="{% url 'job_detail' slug=application.job.slug %}">{{ application.job.title }}</a>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        {% if application.status == 'accepted' %}
-                            <i class="fas fa-check-circle text-success me-2"></i>
-                        {% elif application.status == 'rejected' %}
-                            <i class="fas fa-times-circle text-danger me-2"></i>
-                        {% else %}
-                            <i class="fas fa-hourglass-half text-warning me-2"></i>
-                        {% endif %}
-                        
-                        <a href="{% url 'view_application_employer' application.id %}" class="btn btn-sm btn-primary btn-dash">View</a>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
+            <!-- Check if there are any applications -->
+            {% if job_applications %}
+                <ul class="list-unstyled">
+                    {% for application in job_applications %}
+                        <li class="d-flex align-items-center justify-content-between">
+                            <div class="me-auto">
+                                {{ application.applicant.username }} applied for - <a href="{% url 'job_detail' slug=application.job.slug %}">{{ application.job.title }}</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                {% if application.status == 'accepted' %}
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                {% elif application.status == 'rejected' %}
+                                    <i class="fas fa-times-circle text-danger me-2"></i>
+                                {% else %}
+                                    <i class="fas fa-hourglass-half text-warning me-2"></i>
+                                {% endif %}
+                                <a href="{% url 'view_application_employer' application.id %}" class="btn btn-sm btn-primary btn-dash">View</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You don't have any job applications yet.</p>
+            {% endif %}
         </div>
     </div>
 </div>

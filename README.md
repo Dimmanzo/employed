@@ -1,131 +1,210 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Employed - Job Board
 
-Welcome Dmitrij Sazniov,
+[View live project here!](https://employed-931f04b674fc.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+This project is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.   
+Whether you're on the lookout for your next career move or looking to fill an open position, this platform has you covered.  
+**Job seekers** can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.  
+On the flip side, **employers** can effortlessly **post** new job openings, **update** listings, and **manage** applications all in one place.  
+It’s designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
 
 ---
 
-Happy coding!
+## Table of Contents
+- [Features](#features)
+- [Agile Methodology](#agile-methodology)
+- [UX Design](#ux-design)
+- [Database Schema](#database-schema)
+- [Manual Testing](#manual-testing)
+- [Automated Testing](#automated-testing)
+- [Version Control and Commits](#version-control-and-commits)
+- [Security Considerations](#security-considerations)
+- [Deployment](#deployment)
+- [Technologies Used](#technologies-used)
+- [Cloning and Forking](#cloning-and-forking)
+- [Credits](#credits)
+- [Admin Credentials](#admin-credentials)
+
+---
+
+## Features
+
+### Existing Features
+- **Employer Dashboard**: Employers can log in, post new jobs, and manage existing job listings (edit, close, or delete jobs).
+- **Job Seeker Dashboard**: Job seekers can view the status of their applications and track progress, while job browsing and searching can be done on the main page.
+- **Job Application Management**: Employers can view job applications, accept or reject them, and manage the status of applications.
+- **Search and Filter**: Job seekers can filter jobs by type, work type, and location, as well as search by keywords in the job title, description, or excerpt.
+- **Role-Based Authentication**: Employers and job seekers have different dashboard views and permissions based on their roles.
+- **Closed Jobs**: Jobs that are closed are no longer open for applications, ensuring employers stop receiving applications when needed.
+
+### Features to be Added
+- **Notifications**: Implement notifications for employers when job applications are received and for job seekers when application status changes.
+- **Job Alerts**: Allow job seekers to set alerts for new job postings that match their search criteria.
+- **Employer Analytics**: Provide employers with analytics and insights about job postings (e.g., number of applications, views, etc.).
+- **Favorite Jobs**: Allow job seekers to save jobs they’re interested in and revisit them later.
+- **Email Verification**: Implement email verification during registration to ensure valid email addresses.
+- **User Profile**: Implement a user profile page, with all the information that can be automatically filled into the application.
+- **CV and Cover Letter Upload**: Users will have the option to upload their CV or cover letter directly when applying for jobs.
+
+---
+
+## Agile Methodology
+
+This project followed an Agile development process, using **GitHub Projects** to manage the planning and tracking of user stories and tasks. The Kanban board was used to prioritize features and track progress.
+
+- **Kanban Board**: The entire development process was managed using a Kanban board, ensuring that each task moved through the stages of "To Do", "In Progress", and "Done". 
+  - **User Stories**: Each feature was mapped to a user story and broken down into smaller tasks.
+
+You can access the Kanban board [here](https://github.com/users/Dimmanzo/projects/3).
+
+---
+
+## UX Design
+
+During the design phase, wireframes were created to ensure the user interface would be intuitive, responsive, and easy to navigate.
+
+- **Wireframes** were designed using **Balsamiq**.
+
+  ![Wireframe of homepage](media/wireframe.png)
+  _PC - Homepage, Mobile - Register Page wireframes_
+
+---
+
+## Database Schema
+
+The data model for this project includes key entities such as users, jobs, and applications, all connected through foreign keys to create relationships between employers, job seekers, job listings, and applications.
+
+![Database Schema](media/db-schema.png)
+
+- **Users**: This table stores user information and supports two distinct roles: employers (who can post jobs) and job seekers (who can apply for jobs). 
+It also includes standard fields like username, email, and password.
+- **Jobs**: This table contains job postings created by employers. Each job includes details such as the title, description, location, job type (e.g., full-time, part-time), and work type (e.g., remote, on-site, hybrid). Each job is associated with an employer (via a foreign key reference to the users table).
+- **Applications**: This table tracks job applications submitted by job seekers for specific jobs. It includes fields like the applicant's name, contact information, and a cover letter, as well as the application status (e.g., under review, accepted, rejected). Each application is linked to both a job and a user (the applicant).
+
+---
+
+## Manual Testing
+
+Extensive manual testing was conducted to ensure proper functionality of all key features.
+
+| Test Case | Expected Outcome | Result |
+| --------- | ---------------- | ------ |
+| Employer posts a job | Job appears on main job listings | ✅ |
+| Job Seeker applies for job | Application successfully submitted | ✅ |
+| Employer closes a job | No new applications accepted | ✅ |
+| Job search | Relevant jobs displayed based on search query | ✅ |
+| Filter jobs by type, work type, location | Only relevant jobs are displayed | ✅ |
+| Employer edits job details | Job details are updated | ✅ |
+| Role-based access | Employers cannot access job seeker-only features | ✅ |
+| Admin can manage users and jobs from admin panel | Admin functionalities work correctly | ✅ |
+| Job status change (Open/Closed) | Job status is updated correctly, closed jobs not accepting applications | ✅ |
+
+---
+
+## Automated Testing
+
+Automated testing will be implemented using Django’s built-in testing framework, including unit tests for views, models, and forms.
+
+- **Planned Tests**:
+  - Test job creation, editing, and deletion workflows.
+  - Test job applications to ensure proper submission, acceptance, and rejection.
+  - Test authentication and role-based access (ensuring employers and job seekers have proper access rights).
+  - Test filtering and searching functionalities.
+
+---
+
+## Version Control and Commits
+
+Version control was maintained using **Git** and **GitHub**. The commit history reflects small, frequent, and focused changes.
+
+- **Commit Messages**: Each commit is meaningful and clearly describes the changes or feature implemented.
+- **Commit Frequency**: Regular commits ensured that progress was consistently tracked.
+
+---
+
+## Security Considerations
+
+Security features were a key focus of the development process to protect sensitive user information.
+
+- **Environment Variables**: Sensitive information such as secret keys and database credentials are stored in environment variables.
+- **Role-Based Authentication**: Access to features and content is restricted based on the user's role (employer or job seeker).
+- **Password Security**: Django's built-in authentication and password hashing features are used to ensure secure login and account management.
+
+---
+
+## Deployment
+
+The project was deployed to Heroku using Git and GitHub for version control. The following steps were used to deploy the project:
+
+1. Create a new Heroku app in the Heroku dashboard.
+2. Set up **PostgreSQL from Code Institute** as the database.
+3. Set up environment variables for sensitive data (SECRET_KEY, DATABASE_URL).
+4. Push the project to Heroku using Git.
+5. Migrate the database and create a superuser for admin access.
+
+**Live Project**: [Deployed Site](https://employed-931f04b674fc.herokuapp.com/)
+
+---
+
+## Technologies and Tools Used
+
+- **HTML**: For the structure of the website.
+- **CSS**: For styling and layout.
+- **JavaScript**: For interactivity and dynamic elements.
+- **Django**: As the back-end framework for the project.
+- **PostgreSQL**: The relational database used to store all project data.
+- **Heroku**: Cloud platform used for deployment.
+- **Git**: Version control system for tracking changes in the project.
+- **GitHub Projects**: Project management tool for managing user stories and tasks.
+- **Bootstrap**: CSS framework for responsive design and UI components.
+- **Font Awesome**: Icon library used throughout the platform.
+- **Balsamiq**: Wireframing tool used to create mockups for the project.
+- **Gunicorn**: A WSGI HTTP Server used for running the Django application on Heroku.
+- **Whitenoise**: A library for serving static files in Django, particularly in production (Heroku).
+- **Django crispy forms**:  A Django package used to improve the layout and styling of forms.
+- **Jinja**: Template engine that Django uses for rendering dynamic content into HTML.
+
+---
+
+## Cloning and Forking
+
+### Cloning
+
+To clone the repository:
+
+- On GitHub.com, navigate to the main page of the repository.
+- Above the list of files, click **Code**.
+- Copy the URL for the repository.
+- Type `git clone`, and then paste the URL you copied earlier.
+- Press **Enter** to create your local clone.
+
+### Forking
+
+To fork the repository:
+
+- On GitHub.com, navigate to the main page of the repository.
+- In the top-right corner of the page, click **Fork**.
+- Under "Owner," select the dropdown menu and click an owner for the forked repository.
+- Click **Create Fork**.
+
+---
+
+## Admin Credentials
+
+For assessment purposes, the following admin credentials have been created:
+
+- **Username**: minda0822
+- **Password**: codeinstitute
+
+These credentials can be used to access the admin panel and manage the backend of the project.
+
+---
+
+## Credits
+
+- **Code**: Help with Django best practices from the [Django documentation](https://docs.djangoproject.com/), Some ideas were taken from [Code Institute](https://codeinstitute.net/) - blog walktrough project.
+- **Bootstrap**: Used for responsive grid layout and UI components such as buttons, forms, and navigation [Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/). 
+- **Media**: Icons from [Font Awesome](https://fontawesome.com/).
+- **Balsamiq**: For creating wireframes to visualize the design before development [Balsamiq](https://balsamiq.com/).
+- **Google Fonts**: For typography styling used throughout the website [Google Fonts](https://fonts.google.com/).
+- **Heroku**: For cloud deployment and hosting [Heroku](https://www.heroku.com/).

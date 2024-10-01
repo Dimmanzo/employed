@@ -12,11 +12,14 @@ It’s designed to make the process of finding or posting jobs smooth, efficient
 
 ## Table of Contents
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Agile Methodology](#agile-methodology)
 - [UX Design](#ux-design)
 - [Database Schema](#database-schema)
 - [Manual Testing](#manual-testing)
 - [Automated Testing](#automated-testing)
+- [Lighthouse Testing](#lighthouse-testing)
+- [Validation and Browser Compatibility](#validation-and-browser-compatibility)
 - [Version Control and Commits](#version-control-and-commits)
 - [Security Considerations](#security-considerations)
 - [Deployment](#deployment)
@@ -45,6 +48,26 @@ It’s designed to make the process of finding or posting jobs smooth, efficient
 - **Email Verification**: Implement email verification during registration to ensure valid email addresses.
 - **User Profile**: Implement a user profile page, with all the information that can be automatically filled into the application.
 - **CV and Cover Letter Upload**: Users will have the option to upload their CV or cover letter directly when applying for jobs.
+
+---
+
+## Screenshots
+
+### Home Page
+![Home Page](media/homepage.png)
+_The homepage provides users with easy navigation to browse available job listings._
+
+### Job Seeker Dashboard
+![Job Seeker Dashboard](media/jobseeker-dashboard.png)
+_Job seekers can view the status of their applications and track the progress of their job search._
+
+### Employer Dashboard
+![Employer Dashboard](media/employer-dashboard.png)
+_Employers can post and manage job listings as well as view applicant submissions._
+
+### Job Details Page
+![Job Details](media/job-details.png)
+_Job seekers can view detailed job descriptions and apply directly._
 
 ---
 
@@ -112,6 +135,36 @@ Automated testing will be implemented using Django’s built-in testing framewor
   - Test job applications to ensure proper submission, acceptance, and rejection.
   - Test authentication and role-based access (ensuring employers and job seekers have proper access rights).
   - Test filtering and searching functionalities.
+
+---
+
+## Lighthouse Testing
+
+The performance and accessibility of the website were tested using **Google Lighthouse**.
+
+| Category        | Score |
+| --------------- | ----- |
+| Performance     | 90    |
+| Accessibility   | 98    |
+| Best Practices  | 100   |
+| SEO             | 92    |
+
+---
+
+## Validation and Browser Compatibility
+
+All HTML, CSS, and Python files were tested and validated using:
+
+- **HTML Validator**: [W3C Markup Validation Service](https://validator.w3.org/)
+- **CSS Validator**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+- **Python Linter**: The code was linted using [CI Python linter](https://pep8ci.herokuapp.com/) to ensure proper formatting and adherence to coding standards.
+
+### Browser Compatibility:
+The project was tested across the following browsers to ensure compatibility:
+
+- **Google Chrome**
+- **Mozilla Firefox**
+- **Microsoft Edge**
 
 ---
 

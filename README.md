@@ -74,6 +74,8 @@ During the design phase, wireframes were created to ensure the user interface wo
 
 The data model for this project includes key entities such as users, jobs, and applications, all connected through foreign keys to create relationships between employers, job seekers, job listings, and applications.
 
+- **Database schema** was designed using **dbdiagram.io**.
+
 ![Database Schema](media/db-schema.png)
 
 - **Users**: This table stores user information and supports two distinct roles: employers (who can post jobs) and job seekers (who can apply for jobs). 
@@ -198,3 +200,4 @@ To fork the repository:
 - **Google Fonts**: For typography styling used throughout the website [Google Fonts](https://fonts.google.com/).
 - **Heroku**: For cloud deployment and hosting [Heroku](https://www.heroku.com/).
 - **dbdiagram.io**: For database structure scheme [dbdiagram.io](https://dbdiagram.io/).
+- **Flaticon**: Favicon taken from [Job seeker](https://www.flaticon.com/free-icon/job-seeker_5941749?term=employment&page=1&position=1&origin=tag&related_id=5941749).

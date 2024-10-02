@@ -79,7 +79,14 @@
                                 <!-- Job Seeker: Show Submit Application and Prefill buttons -->
                                 <div class="d-flex">
                                     <button type="submit" class="btn btn-primary me-2">Submit Application</button>
-                                    <button id="prefill-btn" type="button" class="btn btn-secondary">Prefill from Profile</button>
+                                    <!-- Prefill Button with Data Attributes -->
+                                    <button id="prefill-btn" type="button" class="btn btn-secondary"
+                                        data-fullname="{{ user.profile.full_name }}"
+                                        data-email="{{ user.profile.email }}"
+                                        data-phone="{{ user.profile.phone }}"
+                                        data-address="{{ user.profile.address }}">
+                                        Prefill from Profile
+                                    </button>
                                 </div>
                             {% elif user.profile.role == 'employer' %}
                                 <!-- Employer: Disable Submit Application and show message -->

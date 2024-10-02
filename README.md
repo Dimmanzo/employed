@@ -8,6 +8,9 @@ Whether you're on the lookout for your next career move or looking to fill an op
 On the flip side, **employers** can effortlessly **post** new job openings, **update** listings, and **manage** applications all in one place.
 It’s designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
 
+![Am I Responsive](media/responsive.png)  
+_Responsive design on various screen sizes_
+
 ---
 
 ## Table of Contents
@@ -101,6 +104,7 @@ The data model for this project includes key entities such as users, jobs, and a
 - **Database schema** was designed using **dbdiagram.io**.
 
 ![Database Schema](media/db-schema.png)
+_Overview of all DB models_
 
 - **Users**: This table stores user information and supports two distinct roles: employers (who can post jobs) and job seekers (who can apply for jobs). 
 It also includes standard fields like username, email, and password.
@@ -129,13 +133,13 @@ Extensive manual testing was conducted to ensure proper functionality of all key
 
 ## Automated Testing
 
-Automated testing will be implemented using Django’s built-in testing framework, including unit tests for views, models, and forms.
+Automated testing has been implemented using Django’s built-in testing framework, including unit tests for views, models, and forms. The tests cover essential functionality across the Dashboard, Jobs, and Profiles apps.
 
-- **Planned Tests**:
-  - Test job creation, editing, and deletion workflows.
-  - Test job applications to ensure proper submission, acceptance, and rejection.
-  - Test authentication and role-based access (ensuring employers and job seekers have proper access rights).
-  - Test filtering and searching functionalities.
+- **Implemented Tests**:
+  - Job creation, editing, and deletion workflows.
+  - Job applications to ensure proper submission, acceptance, and rejection.
+  - Authentication and role-based access (ensuring employers and job seekers have proper access rights).
+  - Filtering and searching functionalities.
 
 ---
 

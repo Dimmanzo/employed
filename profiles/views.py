@@ -10,6 +10,10 @@ def register(request):
     """
     Handles user registration. Saves the role from the registration form and logs in the user after successful registration.
     """
+    # Redirect logged-in users away from the register page
+    if request.user.is_authenticated:
+        return redirect('dashboard')  # Redirect to the dashboard or any other page
+
     if request.method == 'POST':
         # If the request method is POST, process the form data
         form = RegistrationForm(request.POST)
@@ -32,6 +36,10 @@ def login_user(request):
     """
     Handles user login using Django's AuthenticationForm.
     """
+    # Redirect logged-in users away from the login page
+    if request.user.is_authenticated:
+        return redirect('dashboard')  # Redirect to the dashboard or any other page
+        
     if request.method == "POST":
         # If the request method is POST, process the login form
         form = AuthenticationForm(request, data=request.POST)

@@ -76,10 +76,13 @@
                             <h4 class="text-danger">This job is closed and no longer accepting applications.</h4>
                         {% else %}
                             {% if user.profile.role == 'job_seeker' %}
-                                <!-- Job Seeker button -->
-                                <button type="submit" class="btn btn-primary">Submit Application</button>
+                                <!-- Job Seeker: Show Submit Application and Prefill buttons -->
+                                <div class="d-flex">
+                                    <button type="submit" class="btn btn-primary me-2">Submit Application</button>
+                                    <button id="prefill-btn" type="button" class="btn btn-secondary">Prefill from Profile</button>
+                                </div>
                             {% elif user.profile.role == 'employer' %}
-                                <!-- Employer button -->
+                                <!-- Employer: Disable Submit Application and show message -->
                                 <button type="submit" class="btn btn-primary" disabled>Submit Application</button>
                                 <a href="{% url 'register' %}" class="text-danger ms-2 mb-0">You need to register a Job Seeker account to apply.</a>
                             {% endif %}
@@ -89,12 +92,12 @@
                             <!-- Show message if the job is closed and user is not logged in -->
                             <h4 class="text-danger">This job is closed and no longer accepting applications.</h4>
                         {% else %}
-                            <!-- Unauthenticated users button -->
+                            <!-- Unauthenticated users: Show disabled Submit button and login message -->
                             <button type="submit" class="btn btn-primary" disabled>Submit Application</button>
                             <a href="{% url 'login' %}" class="text-danger ms-2 mb-0">You need to be logged in to submit an application.</a>
                         {% endif %}
                     {% endif %}
-                </div>
+                </div>        
             </form>
         </div>
     </div>

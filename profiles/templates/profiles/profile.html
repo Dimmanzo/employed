@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Update Profile</h2>
+
+            <!-- Profile Update Form -->
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="id_full_name" class="form-label">Full Name</label>
+                    <input type="text" name="full_name" id="id_full_name" class="form-control" value="{{ form.full_name.value }}">
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email</label>
+                    <input type="email" name="email" id="id_email" class="form-control" value="{{ form.email.value }}">
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label for="id_phone" class="form-label">Phone</label>
+                    <input type="text" name="phone" id="id_phone" class="form-control" value="{{ form.phone.value }}">
+                </div>
+
+                <!-- Address -->
+                <div class="mb-3">
+                    <label for="id_address" class="form-label">Address</label>
+                    <input type="text" name="address" id="id_address" class="form-control" value="{{ form.address.value }}">
+                </div>
+
+                <!-- Bio -->
+                <div class="mb-3">
+                    <label for="id_bio" class="form-label">Bio</label>
+                    <textarea name="bio" id="id_bio" class="form-control" rows="4">{{ form.bio.value }}</textarea>
+                </div>
+
+                <!-- Save and Cancel buttons -->
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="submit" class="btn btn-primary me-2 mb-5">Save Changes</button>
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary mb-5">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

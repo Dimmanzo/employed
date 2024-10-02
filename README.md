@@ -41,6 +41,8 @@ _Responsive design on various screen sizes_
 - **Search and Filter**: Job seekers can filter jobs by type, work type, and location, as well as search by keywords in the job title, description, or excerpt.
 - **Role-Based Authentication**: Employers and job seekers have different dashboard views and permissions based on their roles.
 - **Closed Jobs**: Jobs that are closed are no longer open for applications, ensuring employers stop receiving applications when needed.
+- **User Profile**: Implemented a user profile page where job seekers and employers can update their personal information (full name, email, phone, address, bio).
+- **Prefill Application Form**: Job seekers can prefill the application form with their profile details to streamline the application process.
 
 ### Features to be Added
 - **Notifications**: Implement notifications for employers when job applications are received and for job seekers when application status changes.
@@ -48,7 +50,7 @@ _Responsive design on various screen sizes_
 - **Employer Analytics**: Provide employers with analytics and insights about job postings (e.g., number of applications, views, etc.).
 - **Favorite Jobs**: Allow job seekers to save jobs they’re interested in and revisit them later.
 - **Email Verification**: Implement email verification during registration to ensure valid email addresses.
-- **User Profile**: Implement a user profile page, with all the information that can be automatically filled into the application.
+- **Profile Page Improvements**: Add the option for users to upload a profile picture, enhancing personalization and user experience.
 - **CV and Cover Letter Upload**: Users will have the option to upload their CV or cover letter directly when applying for jobs.
 
 ---
@@ -99,15 +101,15 @@ _PC - Homepage, Mobile - Register wireframes_
 
 ## Database Schema
 
-The data model for this project includes key entities such as users, jobs, and applications, all connected through foreign keys to create relationships between employers, job seekers, job listings, and applications.
+The data model for this project includes key entities such as users, profiles, jobs, and applications, all connected through foreign keys to create relationships between employers, job seekers, job listings, and applications.
 
 - **Database schema** was designed using **dbdiagram.io**.
 
 ![Database Schema](media/db-schema.png)
 _Overview of all DB models_
 
-- **Users**: This table stores user information and supports two distinct roles: employers (who can post jobs) and job seekers (who can apply for jobs). 
-It also includes standard fields like username, email, and password.
+- **Users**: This table stores core user information, including username, email, and password. 
+- **Profiles**: This table extends the User model and stores additional information such as user roles (either "Employer" or "Job Seeker") and contact details (full name, phone number, address, and bio).
 - **Jobs**: This table contains job postings created by employers. Each job includes details such as the title, description, location, job type (e.g., full-time, part-time), and work type (e.g., remote, on-site, hybrid). Each job is associated with an employer (via a foreign key reference to the users table).
 - **Applications**: This table tracks job applications submitted by job seekers for specific jobs. It includes fields like the applicant's name, contact information, and a cover letter, as well as the application status (e.g., under review, accepted, rejected). Each application is linked to both a job and a user (the applicant).
 
@@ -128,6 +130,10 @@ Extensive manual testing was conducted to ensure proper functionality of all key
 | Role-based access | Employers cannot access job seeker-only features | ✅ |
 | Admin can manage users and jobs from admin panel | Admin functionalities work correctly | ✅ |
 | Job status change (Open/Closed) | Job status is updated correctly, closed jobs not accepting applications | ✅ |
+| Prefill Application Form | Profile data (name, email, phone, address) is correctly prefilled | ✅ |
+| User Profile Update | Users can successfully update their profile details (full name, email, phone, address, bio) | ✅ |
+| Prevent login/register for authenticated users | Logged-in users are redirected from login/register pages to the dashboard | ✅ |
+
 
 ---
 
@@ -185,6 +191,7 @@ Security features were a key focus of the development process to protect sensiti
 - **Environment Variables**: Sensitive information such as secret keys and database credentials are stored in environment variables.
 - **Role-Based Authentication**: Access to features and content is restricted based on the user's role (employer or job seeker).
 - **Password Security**: Django's built-in authentication and password hashing features are used to ensure secure login and account management.
+- **Restricting Access**: Logged-in users are restricted from accessing the login and registration pages. They are automatically redirected to the dashboard when attempting to access these pages.
 
 ---
 

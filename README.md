@@ -2,10 +2,10 @@
 
 [View live project here!](https://employed-931f04b674fc.herokuapp.com/)
 
-This project is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.   
-Whether you're on the lookout for your next career move or looking to fill an open position, this platform has you covered.  
-**Job seekers** can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.  
-On the flip side, **employers** can effortlessly **post** new job openings, **update** listings, and **manage** applications all in one place.  
+This project is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.
+Whether you're on the lookout for your next career move or looking to fill an open position, this platform has you covered.
+**Job seekers** can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.
+On the flip side, **employers** can effortlessly **post** new job openings, **update** listings, and **manage** applications all in one place.
 It’s designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
 
 ---
@@ -74,10 +74,12 @@ _Job seekers can view detailed job descriptions and apply directly._
 
 This project followed an Agile development process, using **GitHub Projects** to manage the planning and tracking of user stories and tasks. The Kanban board was used to prioritize features and track progress.
 
+You can access the Kanban board [here](https://github.com/users/Dimmanzo/projects/3).
 - **Kanban Board**: The entire development process was managed using a Kanban board, ensuring that each task moved through the stages of "To Do", "In Progress", and "Done". 
   - **User Stories**: Each feature was mapped to a user story and broken down into smaller tasks.
 
-You can access the Kanban board [here](https://github.com/users/Dimmanzo/projects/3).
+![Kanban Board](media/kanban.png)
+_Kanban Board for Employed project_
 
 ---
 
@@ -87,8 +89,8 @@ During the design phase, wireframes were created to ensure the user interface wo
 
 - **Wireframes** were designed using **Balsamiq**.
 
-  ![Wireframe of homepage](media/wireframe.png)
-  _PC - Homepage, Mobile - Register wireframes_
+![Wireframe of homepage](media/wireframe.png)
+_PC - Homepage, Mobile - Register wireframes_
 
 ---
 

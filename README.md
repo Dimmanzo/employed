@@ -2,19 +2,31 @@
 
 [View live project here!](https://employed-931f04b674fc.herokuapp.com/)
 
-This project is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.
-Whether you're on the lookout for your next career move or looking to fill an open position, this platform has you covered.
-**Job seekers** can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.
-On the flip side, **employers** can effortlessly **post** new job openings, **update** listings, and **manage** applications all in one place.
-It’s designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
+## Project Rationale
+This project was developed to address the growing need for a seamless job application process for both job seekers and employers.  
+It aims to streamline job searching and application management in a user-friendly environment, ultimately connecting skilled individuals with opportunities.
+
+---
 
 ![Am I Responsive](media/responsive.png)  
 _Responsive design on various screen sizes_
 
 ---
 
+## Overview
+The **Employed** platform is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.  
+Users can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.  
+On the employer side, it allows for effortless **posting** of new job openings, updating listings, and managing applications—all in one place.  
+This solution is designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
+
+---
+
 ## Table of Contents
+- [Project Rationale](#project-rationale)
 - [Features](#features)
+- [Known Issues](#known-issues)
+- [Future Improvements](#future-improvements)
+- [User Stories](#user-stories)
 - [Screenshots](#screenshots)
 - [Agile Methodology](#agile-methodology)
 - [UX Design](#ux-design)
@@ -26,6 +38,7 @@ _Responsive design on various screen sizes_
 - [Version Control and Commits](#version-control-and-commits)
 - [Security Considerations](#security-considerations)
 - [Deployment](#deployment)
+- [Setup Instructions](#setup-instructions)
 - [Technologies and Tools Used](#technologies-and-tools-used)
 - [Cloning and Forking](#cloning-and-forking)
 - [Credits](#credits)
@@ -55,6 +68,49 @@ _Responsive design on various screen sizes_
 
 ---
 
+## Known Issues
+- Users currently cannot edit their applications once submitted; this feature is planned for future updates.
+- Job seekers do not receive immediate notifications when a job application status changes; notifications will be implemented in future releases.
+- All known issues will be monitored as the project progresses to ensure timely updates and enhancements.
+
+---
+
+## Future Improvements
+- Improve the notification system to keep users informed of job postings, application statuses, and other relevant updates.
+- Enhance the employer dashboard with advanced analytics for better decision-making regarding job postings.
+- Introduce a more comprehensive search algorithm to provide better job matching for seekers based on skills and experience.
+- Develop a mobile application to provide easier access to job listings and applications on the go.
+- Implement additional filters in job search to allow job seekers to refine their search further.
+- Enhance the UI/UX based on user feedback to improve overall user satisfaction.
+
+---
+
+## User Stories
+- As a **Job Seeker**, I can **apply for a job** so that **I can offer my services to an employer**.
+- As a **Job Seeker**, I can **browse available jobs** so that **I can find work that matches my skills**.
+- As an **Employer**, I can **post a job listing** so that **I can hire an employee for a specific task**.
+- As a **Registered User**, I can **log in and log out of my account** so that **I can access personalized features**.
+- As a **Job Seeker or Employer**, I can **create an account** so that **I can access the platform’s features**.
+- As an **Employer**, I can **delete my job postings** so that **I can remove outdated or irrelevant listings**.
+- As an **Employer**, I can **close job postings when the hiring process is complete** so that **I stop receiving applications for that position**.
+- As an **Employer**, I can **accept or reject job applications** so that **I can manage the hiring process effectively**.
+- As an **Employer or Job Seeker**, I can **view a dashboard where I can see all my job posts and applications** so that **I can manage them or check their status**.
+- As a **Job Seeker**, I can **see the status of my job applications** so that **I know if I have been selected or rejected**.
+- As a **Job Seeker**, I can **search for jobs by keywords** so that **I can quickly find relevant opportunities**.
+- As a **Registered User**, I can **update my profile details** so that **my information stays accurate**.
+- As an **Employer**, I can **edit my job listings** so that **I can make updates to the job details**.
+- As a **Job Seeker**, I can **upload my CV and cover letter when applying for jobs** so that **I can present my qualifications and experience efficiently**.
+- As a **User**, I can **upload a profile picture to personalize my account** so that **my profile reflects my identity and enhances my experience on the platform**.
+- As a **User**, I can **verify my email during registration** so that **I can ensure my account is securely created and prevent unauthorized access**.
+- As a **Job Seeker**, I can **save jobs I’m interested in** so that **I can easily revisit and apply for them later**.
+- As an **Employer**, I can **view analytics on my job postings (e.g., number of applications, views, etc.)** so that **I can assess the effectiveness of my listings and make data-driven decisions**.
+- As a **Job Seeker**, I can **set alerts for new job postings that match my search criteria** so that **I can be notified of relevant opportunities without constantly checking the platform**.
+- As a **Job Seeker**, I can **receive notifications when the status of my job application changes** so that **I can stay updated on my application progress**.
+- As an **Employer**, I can **receive notifications when job applications are submitted** so that **I can quickly review and manage incoming applications**.
+- As an **Employer**, I can **rate or review job seekers after a project** so that **other employers can see their work quality**.
+
+---
+
 ## Screenshots
 
 ### Home Page
@@ -77,14 +133,29 @@ _Job seekers can view detailed job descriptions and apply directly._
 
 ## Agile Methodology
 
-This project followed an Agile development process, using **GitHub Projects** to manage the planning and tracking of user stories and tasks. The Kanban board was used to prioritize features and track progress.
+This project followed an Agile development process, utilizing **GitHub Projects** to manage the planning and tracking of user stories and tasks. The Kanban board was employed to prioritize features and track progress through various stages of development.
 
 You can access the Kanban board [here](https://github.com/users/Dimmanzo/projects/3).
+
 - **Kanban Board**: The entire development process was managed using a Kanban board, ensuring that each task moved through the stages of "To Do", "In Progress", and "Done". 
-  - **User Stories**: Each feature was mapped to a user story and broken down into smaller tasks.
+
+- **Milestones**: Key milestones were established to segment the project into manageable phases, ensuring timely completion of essential features. Each milestone focused on specific functionalities, guiding towards clear goals.
+
+- **Labels**: Various labels were used to categorize tasks, such as "Must Have", "Should Have", "Could Have". This classification helped prioritize features based on urgency and importance, facilitating better planning and execution.
+
+- **User Stories**: Each feature was mapped to a user story and broken down into smaller, actionable tasks. This approach allowed for clearer task assignment and tracking, ensuring that all aspects of user requirements were addressed effectively.
 
 ![Kanban Board](media/kanban.png)
 _Kanban Board for Employed project_
+
+![Kanban Board](media/milestones.png)
+_Milestones for Employed project_
+
+![Kanban Board](media/labels.png)
+_Labels for Employed project_
+
+![Kanban Board](media/user-story-tasks.png)
+_User Story Tasks for Employed project_
 
 ---
 
@@ -106,7 +177,6 @@ _PC - Homepage, Mobile - Register wireframes_
 ![Job Application Page Wireframe](media/wireframe-application.png)
 _PC - Homepage, Mobile - Register wireframes_
 
-
 ---
 
 ## Database Schema
@@ -115,7 +185,7 @@ The data model for this project includes key entities such as users, profiles, j
 
 - **Database schema** was designed using **dbdiagram.io**.
 
-![Database Schema](media/db-schema.png)
+![Database Schema](media/db-schema.png)  
 _Overview of all DB models_
 
 - **Users**: This table stores core user information, including username, email, and password. 
@@ -239,6 +309,43 @@ The project was deployed to Heroku using Git and GitHub for version control. The
 
 ---
 
+## Setup Instructions
+
+To set up the project in Gitpod, follow these steps:
+
+1. **Open Gitpod**:  
+    Navigate to your GitHub repository and prefix the URL with `gitpod.io/#`. For example:  
+    `https://gitpod.io/#https://github.com/yourusername/employed.git`
+
+2. **Install dependencies**:  
+    In the terminal, run:  
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Set up the database**:  
+    Create a PostgreSQL database and update the `DATABASE_URL` in your environment variables.
+
+4. **Run migrations**:  
+    ```bash
+    python manage.py migrate
+    ```
+
+5. **Create a superuser for admin access**:  
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+6. **Run the development server**:  
+    ```bash
+    python3 manage.py runserver 0.0.0.0:8000
+    ```
+
+7. **Access the application**:  
+    Open the URL provided in the terminal to view your application.
+
+---
+
 ## Technologies and Tools Used
 
 - **HTML**: For the structure of the website.
@@ -284,7 +391,7 @@ To fork the repository:
 
 ## Credits
 
-- **Code**: Help with Django best practices from the [Django documentation](https://docs.djangoproject.com/), Some ideas were taken from [Code Institute](https://codeinstitute.net/) - blog walktrough project.
+- **Code**: Help with Django best practices from the [Django documentation](https://docs.djangoproject.com/), Some ideas were taken from [Code Institute](https://codeinstitute.net/) - blog walkthrough project.
 - **Bootstrap**: Used for responsive grid layout and UI components such as buttons, forms, and navigation [Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/). 
 - **Media**: Icons from [Font Awesome](https://fontawesome.com/).
 - **Balsamiq**: For creating wireframes to visualize the design before development [Balsamiq](https://balsamiq.com/).

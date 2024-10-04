@@ -16,18 +16,32 @@ class DashboardTests(TestCase):
         """
 
         # Create users
-        self.employer = User.objects.create_user(username='employer', password='password')
-        self.job_seeker = User.objects.create_user(username='job_seeker', password='password')
+        self.employer = User.objects.create_user(
+            username='employer',
+            password='password'
+        )
+        self.job_seeker = User.objects.create_user(
+            username='job_seeker',
+            password='password'
+        )
 
         # Create profiles for roles
         Profile.objects.create(user=self.employer, role='employer')
         Profile.objects.create(user=self.job_seeker, role='job_seeker')
 
         # Create a job
-        self.job = Job.objects.create(title="Job 1", slug="job-1", employer=self.employer)
+        self.job = Job.objects.create(
+            title="Job 1",
+            slug="job-1",
+            employer=self.employer
+        )
 
         # Create an application for the job
-        self.application = Application.objects.create(applicant=self.job_seeker, job=self.job, full_name="John Doe")
+        self.application = Application.objects.create(
+            applicant=self.job_seeker,
+            job=self.job,
+            full_name="John Doe"
+        )
 
     def test_employer_dashboard(self):
         """
@@ -52,7 +66,8 @@ class DashboardTests(TestCase):
         Test if the job seeker can view their application.
         """
         self.client.login(username='job_seeker', password='password')
-        response = self.client.get(reverse('view_application', args=[self.application.id]))
+        response = self.client.get(
+            reverse('view_application', args=[self.application.id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'dashboard/view_application.html')
 
@@ -61,6 +76,10 @@ class DashboardTests(TestCase):
         Test if the job seeker can withdraw their application.
         """
         self.client.login(username='job_seeker', password='password')
-        response = self.client.post(reverse('withdraw_application', args=[self.application.id]), {'withdraw': 'true'})
+        response = self.client.post(
+            reverse('withdraw_application',
+                    args=[self.application.id]),
+            {'withdraw': 'true'})
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(Application.objects.filter(id=self.application.id).exists())
+        self.assertFalse(
+            Application.objects.filter(id=self.application.id).exists())

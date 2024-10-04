@@ -7,7 +7,7 @@ from .models import Profile
 class RegistrationForm(UserCreationForm):
     """
     Custom registration form that extends UserCreationForm.
-    It includes an additional 'role' field to distinguish between job seekers and employers.
+    Includes 'role' field to distinguish between job seekers and employers.
     """
 
     # Role choices for user registration
@@ -28,8 +28,10 @@ class RegistrationForm(UserCreationForm):
 class ProfileUpdateForm(forms.ModelForm):
     """
     Handles user profile updates by allowing users to change
-    their full name, email, phone, address, and bio. The form is pre-filled with
-    existing profile information, and when saved, it updates the user's profile details.
+    their full name, email, phone, address, and bio.
+    The form is pre-filled with
+    existing profile information, and when saved,
+    it updates the user's profile details.
     """
 
     class Meta:
@@ -38,7 +40,7 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['full_name', 'email', 'phone', 'address', 'bio']
 
     def __init__(self, *args, **kwargs):
-        # Initializes the form by populating it with the user's existing profile information.
+        # Populatesg form with the user's existing profile information.
         super(ProfileUpdateForm, self).__init__(*args, **kwargs)
 
         # Prefill Profile model fields
@@ -52,7 +54,7 @@ class ProfileUpdateForm(forms.ModelForm):
             })
 
     def save(self, commit=True):
-        # Saves the form data to the Profile model. If commit=True, the profile is saved to the database.
+        # Saves the form data to the Profile model.
         profile = super().save(commit=False)
 
         # Save the Profile model fields

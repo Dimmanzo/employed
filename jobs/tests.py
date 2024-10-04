@@ -16,15 +16,24 @@ class JobTests(TestCase):
         """
 
         # Create users
-        self.employer = User.objects.create_user(username='employer', password='password')
-        self.job_seeker = User.objects.create_user(username='job_seeker', password='password')
+        self.employer = User.objects.create_user(
+                username='employer',
+                password='password'
+        )
+        self.job_seeker = User.objects.create_user(
+            username='job_seeker',
+            password='password'
+        )
 
         # Create profiles for roles
         Profile.objects.create(user=self.employer, role='employer')
         Profile.objects.create(user=self.job_seeker, role='job_seeker')
 
         # Create a job
-        self.job = Job.objects.create(title="Job 1", slug="job-1", employer=self.employer)
+        self.job = Job.objects.create(
+            title="Job 1", slug="job-1",
+            employer=self.employer
+        )
 
     def test_job_list_view(self):
         """
@@ -55,7 +64,8 @@ class JobTests(TestCase):
         Test if a job seeker can apply for a job.
         """
         self.client.login(username='job_seeker', password='password')
-        response = self.client.post(reverse('apply_for_job', args=[self.job.slug]), {
+        response = self.client.post(
+           reverse('apply_for_job', args=[self.job.slug]), {
             'full_name': 'John Doe',
             'email': 'john@example.com',
             'phone': '1234567890',
@@ -63,6 +73,9 @@ class JobTests(TestCase):
             'short_description': 'Experienced Developer',
             'last_jobs': 'Previous job',
             'cover_letter': 'I am interested',
-        })
-        self.assertEqual(response.status_code, 302)  # Redirect to dashboard after application
-        self.assertEqual(self.job.application_set.count(), 1)  # Ensure application was created
+           })
+        # Redirect to dashboard after application
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(
+            # Ensure application was created
+            self.job.application_set.count(), 1)

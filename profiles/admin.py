@@ -21,7 +21,6 @@ class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline,)
     list_display = ['username', 'email', 'is_staff', 'get_role']
 
-
     # Displays the 'role' field from the Profile model in the admin list view.
     def get_role(self, instance):
         return instance.profile.role

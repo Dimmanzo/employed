@@ -10,9 +10,11 @@ from .forms import JobForm
 
 class JobList(generic.ListView):
     """
-    This view handles displaying and filtering the list of jobs on the homepage.
-    The view uses Django's ListView to paginate and retrieve job data. Filters are applied based on the user's 
-    input from the front-end, including search, job type, work type, and location.
+    Handles displaying and filtering the list of jobs on the homepage.
+    The view uses Django's ListView to paginate and retrieve job data.
+    Filters are applied based on the user's
+    input from the front-end, including search,
+    job type, work type, and location.
     """
     model = Job
     template_name = "jobs/index.html"
@@ -50,7 +52,8 @@ class JobList(generic.ListView):
 def job_detail(request, slug):
     """
     This view renders the details of a job when the user clicks on a job post.
-    It uses the slug to identify the job and passes it to the template for display.
+    It uses the slug to identify the job
+    and passes it to the template for display.
     """
     job = get_object_or_404(Job, slug=slug)
     return render(request, 'jobs/job_detail.html', {'job': job})
@@ -60,7 +63,8 @@ def job_detail(request, slug):
 def create_job(request):
     """
     This view handles the creation of a new job post by the employer.
-    It checks if the request is POST and, if valid, saves the job, associating it with the employer who created it.
+    It checks if the request is POST and, if valid,
+    saves the job, associating it with the employer who created it.
     """
     if request.method == 'POST':
         form = JobForm(request.POST)
@@ -71,7 +75,10 @@ def create_job(request):
             messages.success(request, 'Job posted successfully!')
             return redirect('dashboard')
         else:
-            messages.error(request, 'There was an error posting the job. Please check the form and try again.')
+            messages.error(
+                request,
+                'There was an error posting the job. '
+                'Please check the form and try again.')
     else:
         form = JobForm()
     return render(request, 'jobs/create_job.html', {'form': form})
@@ -81,7 +88,8 @@ def create_job(request):
 def apply_for_job(request, slug):
     """
     This view allows job seekers to apply for a specific job.
-    It retrieves the job based on the slug and allows the user to fill in their details, which are saved as an Application object.
+    It retrieves the job based on the slug and allows the user to
+    fill in their details, which are saved as an Application object.
     The view prevents applications to closed jobs.
     """
     # Retrieve the job based on the slug
@@ -89,7 +97,9 @@ def apply_for_job(request, slug):
 
     # Prevent application if the job is closed
     if job.status == 'closed':
-        messages.error(request, "This job is closed and no longer accepting applications.")
+        messages.error(
+            request,
+            "This job is closed and no longer accepting applications.")
         return redirect('job_detail', slug=slug)
 
     # Check for POST request
@@ -103,7 +113,11 @@ def apply_for_job(request, slug):
         cover_letter = request.POST.get('cover_letter')
 
         # Check if all required fields are filled
-        if not full_name or not email or not phone or not address or not short_description or not last_jobs or not cover_letter:
+        if (
+            not full_name or not email or not phone or
+            not address or not short_description or
+            not last_jobs or not cover_letter
+        ):
             messages.error(request, "Please fill in all required fields.")
             return render(request, 'jobs/job_detail.html', {'job': job})
 
@@ -129,8 +143,9 @@ def apply_for_job(request, slug):
 @login_required
 def edit_job(request, job_id):
     """
-    This view allows employers to edit an existing job post. 
-    The job must belong to the employer, and if the form is valid, the job is updated.
+    This view allows employers to edit an existing job post.
+    The job must belong to the employer,
+    and if the form is valid, the job is updated.
     """
     job = get_object_or_404(Job, id=job_id, employer=request.user)
 
@@ -138,7 +153,8 @@ def edit_job(request, job_id):
         form = JobForm(request.POST, instance=job)
         if form.is_valid():
             form.save()
-            messages.success(request, f'The job "{job.title}" was successfully updated.')
+            messages.success(
+                request, f'The job "{job.title}" was successfully updated.')
             return redirect('dashboard')
         else:
             messages.error(request, 'Please correct the errors below.')
@@ -151,8 +167,10 @@ def edit_job(request, job_id):
 @login_required
 def update_job(request, job_id):
     """
-    This view allows employers to update the status of a job (open, close, or delete).
-    It verifies that the job belongs to the logged-in employer before making changes.
+    This view allows employers to update the status of a job
+    (open, close, or delete).
+    It verifies that the job belongs to the logged-in employer
+    before making changes.
     """
     job = get_object_or_404(Job, id=job_id, employer=request.user)
 
@@ -160,14 +178,19 @@ def update_job(request, job_id):
         if 'open' in request.POST:
             job.status = 'open'
             job.save()
-            messages.success(request, f'The job "{job.title}" has been successfully opened.')
+            messages.success(
+                request,
+                f'The job "{job.title}" has been successfully opened.')
         elif 'close' in request.POST:
             job.status = 'closed'
             job.save()
-            messages.success(request, f'The job "{job.title}" has been successfully closed.')
+            messages.success(
+                request,
+                f'The job "{job.title}" has been successfully closed.')
         elif 'delete' in request.POST:
             job.delete()
-            messages.success(request, f'The job "{job.title}" was successfully removed.')
+            messages.success(
+                request, f'The job "{job.title}" was successfully removed.')
 
         return redirect('dashboard')
 

@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     """
-    Profile model that extends the built-in User model with additional user roles
+    Profile model that extends the built-in User model
+    with additional user roles
     (either employer or job seeker).
     """
 

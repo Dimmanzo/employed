@@ -19,7 +19,7 @@
         <!-- Application Form Section -->
         <div class="col-md-6">
             <h4>Apply for the Job</h4>
-            <form method="POST" action="{% url 'apply_for_job' slug=job.slug %}">
+            <form method="POST" action="{% url 'apply_for_job' slug=job.slug %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!-- Full Name -->
                 <div class="mb-3">
@@ -67,6 +67,18 @@
                     <label for="cover_letter" class="form-label">Cover Letter</label>
                     <textarea class="form-control" id="cover_letter" name="cover_letter" rows="5"
                         placeholder="Write a cover letter" required></textarea>
+                </div>
+
+                <!-- CV Upload -->
+                <div class="mb-3">
+                    <label for="cv" class="form-label">Upload CV (optional)</label>
+                    <input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.docx">
+                </div>
+
+                <!-- Cover Letter Upload -->
+                <div class="mb-3">
+                    <label for="cover_letter_file" class="form-label">Upload Cover Letter (optional)</label>
+                    <input type="file" class="form-control" id="cover_letter_file" name="cover_letter_file" accept=".pdf,.docx">
                 </div>
 
                 <div class="d-flex align-items-center">

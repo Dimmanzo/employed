@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Job
-from dashboard.models import Application
+from jobs.models import Application
 
 
 @admin.register(Job)

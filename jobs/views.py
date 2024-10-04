@@ -3,8 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views import generic
 from django.db.models import Q
-from dashboard.models import Application
-from .models import Job
+from .models import Job, Application
 from .forms import JobForm
 
 
@@ -47,7 +46,10 @@ class JobList(generic.ListView):
             )
 
         if not queryset.exists():
-            messages.error(self.request, "No jobs found matching your criteria.", extra_tags='danger')
+            messages.error(self.request,
+                           "No jobs found matching your criteria.",
+                           extra_tags='danger'
+                           )
 
         return queryset
 
@@ -107,10 +109,15 @@ def apply_for_job(request, slug):
 
     # Check for POST request
     if request.method == 'POST':
-        
+
         # Check for existing application
-        if Application.objects.filter(job=job, applicant=request.user).exists():
-            messages.error(request, "You have already applied for this job.", extra_tags='danger')
+        if Application.objects.filter(job=job,
+                                      applicant=request.user).exists():
+            messages.error(
+                request,
+                "You have already applied for this job.",
+                extra_tags='danger'
+            )
             return redirect('job_detail', slug=slug)
 
         full_name = request.POST.get('full_name')
@@ -120,6 +127,10 @@ def apply_for_job(request, slug):
         short_description = request.POST.get('short_description')
         last_jobs = request.POST.get('last_jobs')
         cover_letter = request.POST.get('cover_letter')
+
+        # Retrieve uploaded files
+        cv = request.FILES.get('cv')  # Handle the CV upload
+        cover_letter_file = request.FILES.get('cover_letter_file')
 
         # Check if all required fields are filled
         if (
@@ -141,6 +152,8 @@ def apply_for_job(request, slug):
             short_description=short_description,
             last_jobs=last_jobs,
             cover_letter=cover_letter,
+            cv=cv,
+            cover_letter_file=cover_letter_file,
         )
 
         messages.success(request, "Application submitted successfully!")

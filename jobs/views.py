@@ -102,6 +102,11 @@ def apply_for_job(request, slug):
         last_jobs = request.POST.get('last_jobs')
         cover_letter = request.POST.get('cover_letter')
 
+        # Check if all required fields are filled
+        if not full_name or not email or not phone or not address or not short_description or not last_jobs or not cover_letter:
+            messages.error(request, "Please fill in all required fields.")
+            return render(request, 'jobs/job_detail.html', {'job': job})
+
         # Create a new Application instance
         Application.objects.create(
             applicant=request.user,

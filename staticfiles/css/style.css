@@ -153,6 +153,25 @@ ul {
     padding: 20px 0 0 0;
     text-align: center;
     font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Ensure the footer always stays at the bottom */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Makes the main content take the available space */
+}
+
+.footer {
+    padding-top: 10px;
+    margin-top: 20px;
 }
 
 .footer a {

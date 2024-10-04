@@ -25,51 +25,51 @@
                 <div class="mb-3">
                     <label for="full_name" class="form-label">Full Name</label>
                     <input type="text" class="form-control" id="full_name" name="full_name"
-                        placeholder="Enter your full name">
+                        placeholder="Enter your full name" required>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                 </div>
 
                 <!-- Phone Number -->
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone Number</label>
                     <input type="text" class="form-control" id="phone" name="phone"
-                        placeholder="Enter your phone number">
+                        placeholder="Enter your phone number" required>
                 </div>
 
                 <!-- Address -->
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
                     <input type="text" class="form-control" id="address" name="address"
-                        placeholder="Enter your address">
+                        placeholder="Enter your address" required>
                 </div>
 
                 <!-- Short Description -->
                 <div class="mb-3">
                     <label for="short_description" class="form-label">Short Description</label>
                     <textarea class="form-control" id="short_description" name="short_description" rows="2"
-                        placeholder="Briefly describe your skills and experience"></textarea>
+                        placeholder="Briefly describe your skills and experience" required></textarea>
                 </div>
 
                 <!-- Last 5 Jobs Experience -->
                 <div class="mb-3">
                     <label for="last_jobs" class="form-label">Last 5 Jobs Experience</label>
                     <textarea class="form-control" id="last_jobs" name="last_jobs" rows="4"
-                        placeholder="List your last 5 jobs"></textarea>
+                        placeholder="List your last 5 jobs" required></textarea>
                 </div>
 
                 <!-- Cover Letter -->
                 <div class="mb-3">
                     <label for="cover_letter" class="form-label">Cover Letter</label>
                     <textarea class="form-control" id="cover_letter" name="cover_letter" rows="5"
-                        placeholder="Write a cover letter"></textarea>
+                        placeholder="Write a cover letter" required></textarea>
                 </div>
 
-                <div class="d-flex align-items-center mb-5">
+                <div class="d-flex align-items-center">
                     {% if user.is_authenticated %}
                         {% if job.status == 'closed' %}
                             <!-- Show message if the job is closed -->
@@ -77,8 +77,8 @@
                         {% else %}
                             {% if user.profile.role == 'job_seeker' %}
                                 <!-- Job Seeker: Show Submit Application and Prefill buttons -->
-                                <div class="d-flex">
-                                    <button type="submit" class="btn btn-primary me-2">Submit Application</button>
+                                <div class="d-flex  gap-2">
+                                    <button type="submit" class="btn btn-primary">Submit Application</button>
                                     <!-- Prefill Button with Data Attributes -->
                                     <button id="prefill-btn" type="button" class="btn btn-secondary"
                                         data-fullname="{{ user.profile.full_name }}"
@@ -91,7 +91,7 @@
                             {% elif user.profile.role == 'employer' %}
                                 <!-- Employer: Disable Submit Application and show message -->
                                 <button type="submit" class="btn btn-primary" disabled>Submit Application</button>
-                                <a href="{% url 'register' %}" class="text-danger ms-2 mb-0">You need to register a Job Seeker account to apply.</a>
+                                <a href="{% url 'register' %}" class="text-danger ms-4">You need to register a Job Seeker account to apply.</a>
                             {% endif %}
                         {% endif %}
                     {% else %}
@@ -101,7 +101,7 @@
                         {% else %}
                             <!-- Unauthenticated users: Show disabled Submit button and login message -->
                             <button type="submit" class="btn btn-primary" disabled>Submit Application</button>
-                            <a href="{% url 'login' %}" class="text-danger ms-2 mb-0">You need to be logged in to submit an application.</a>
+                            <a href="{% url 'login' %}" class="text-danger ms-4">You need to be logged in to submit an application.</a>
                         {% endif %}
                     {% endif %}
                 </div>        

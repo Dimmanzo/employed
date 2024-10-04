@@ -41,9 +41,10 @@
             {% csrf_token %}
 
             <!-- Buttons for Accepting or Rejecting the application -->
-            <div class="d-flex justify-content-start">
-                <button type="submit" name="accept" class="btn btn-success me-2 mb-5">Accept Application</button>
-                <button type="submit" name="reject" class="btn btn-danger mb-5">Reject Application</button>
+            <div class="d-flex justify-content-start gap-2">
+                <button type="submit" name="accept" class="btn btn-success">Accept Application</button>
+                <button type="submit" name="reject" class="btn btn-danger">Reject Application</button>
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>

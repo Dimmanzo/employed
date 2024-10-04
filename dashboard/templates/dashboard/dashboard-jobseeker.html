@@ -20,7 +20,7 @@
                             </a>
                         </div>
 
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center gap-2">
                             {% if application.status == 'accepted' %}
                                 <i class="fas fa-check-circle text-success me-2"></i>
                             {% elif application.status == 'rejected' %}
@@ -31,7 +31,7 @@
                                 <i class="fas fa-question-circle text-muted me-2"></i>
                             {% endif %}
 
-                            <a href="{% url 'view_application' application.id %}" class="btn btn-sm btn-primary btn-dash me-2">View</a>
+                            <a href="{% url 'view_application' application.id %}" class="btn btn-sm btn-primary btn-dash">View</a>
                             <a href="{% url 'withdraw_application' application.id %}" class="btn btn-sm btn-danger btn-dash">Withdraw</a>
                         </div>
                     </li>
@@ -40,7 +40,7 @@
             {% else %}
             
                 <!-- Message for no applications -->
-                <p>You don't have any job applications yet.</p>
+                <p class="mt-3">You don't have any job applications yet.</p>
             {% endif %}
         </div>
     </div>

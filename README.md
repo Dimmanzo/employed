@@ -160,11 +160,22 @@ _Performance 97, Accessibility 100, Best Practices 100, SEO 100_
 
 ## Validation and Browser Compatibility
 
-All HTML, CSS, and Python files were tested and validated using:
+All HTML, CSS, and Python files were tested and validated with no errors found:
 
 - **HTML Validator**: [W3C Markup Validation Service](https://validator.w3.org/)
+
+![HTML Validator](media/html-validator.png)  
+_Tested on all pages with no errors found_
+
 - **CSS Validator**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-- **Python Linter**: The code was linted using [CI Python linter](https://pep8ci.herokuapp.com/) to ensure proper formatting and adherence to coding standards.
+
+![Lighthouse](media/css-validator.png)  
+_Tested with no errors found_
+
+- **Python Linter**: [CI Python linter](https://pep8ci.herokuapp.com/) 
+
+![Lighthouse](media/python-validator.png)  
+_Tested on all python files with no errors found_
 
 ### Browser Compatibility:
 The project was tested across the following browsers to ensure compatibility:

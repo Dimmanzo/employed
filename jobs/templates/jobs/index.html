@@ -59,8 +59,8 @@
                         <a href="{% url 'home' %}" class="btn btn-secondary w-50" style="height: 38px;">Reset</a>
                     </div>
                 </div>
+            </form>
         </div>
-        </form>
     </div>
 </div>
 
@@ -73,9 +73,9 @@
                 <a href="{% url 'job_detail' slug=job.slug %}" class="stretched-link">
                     <h2 class="card-title">{{ job.title }}</h2>
                 </a>
-                <hr />
+                <hr>
                 <p class="card-text">{{ job.excerpt }}</p>
-                <hr />
+                <hr>
                 <p class="card-text">{{ job.location }} | {{ job.get_work_type_display }} |
                     {{ job.get_job_type_display }}</p>
                 <p class="card-text text-muted h6 text-end">{{ job.created_at }}</p>
@@ -102,5 +102,4 @@
     </ul>
 </nav>
 {% endif %}
-</div>
 {% endblock %}

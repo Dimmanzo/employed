@@ -94,8 +94,18 @@ During the design phase, wireframes were created to ensure the user interface wo
 
 - **Wireframes** were designed using **Balsamiq**.
 
-![Wireframe of homepage](media/wireframe.png)
+![Home Page Wireframe](media/wireframe.png)
 _PC - Homepage, Mobile - Register wireframes_
+
+![Job Seeker Dashboard Wireframe](media/wireframe-js-dashboard.png)
+_PC - Homepage, Mobile - Register wireframes_
+
+![Employer Dashboard Wireframe](media/wireframe-employer-dashboard.png)
+_PC - Homepage, Mobile - Register wireframes_
+
+![Job Application Page Wireframe](media/wireframe-application.png)
+_PC - Homepage, Mobile - Register wireframes_
+
 
 ---
 
@@ -133,7 +143,7 @@ Extensive manual testing was conducted to ensure proper functionality of all key
 | Prefill Application Form | Profile data (name, email, phone, address) is correctly prefilled | ✅ |
 | User Profile Update | Users can successfully update their profile details (full name, email, phone, address, bio) | ✅ |
 | Prevent login/register for authenticated users | Logged-in users are redirected from login/register pages to the dashboard | ✅ |
-
+| Form Submission Validations | Ensure that all required fields are filled out in job applications, preventing submission with empty fields | ✅ |
 
 ---
 
@@ -146,6 +156,10 @@ Automated testing has been implemented using Django’s built-in testing framewo
   - Job applications to ensure proper submission, acceptance, and rejection.
   - Authentication and role-based access (ensuring employers and job seekers have proper access rights).
   - Filtering and searching functionalities.
+
+- **Additional Planned Tests**:
+  - Role-Based Redirection: Ensure that users with different roles (employers and job seekers) are redirected to the correct dashboard.
+  - Form Validations: Automate validation checks for required fields in job applications.
 
 ---
 
@@ -160,21 +174,26 @@ _Performance 97, Accessibility 100, Best Practices 100, SEO 100_
 
 ## Validation and Browser Compatibility
 
-All HTML, CSS, and Python files were tested and validated with no errors found:
+All HTML, CSS, JS and Python files were tested and validated with no errors found:
 
-- **HTML Validator**: [W3C Markup Validation Service](https://validator.w3.org/)
+- **HTML Testing**: [W3C Markup Validation Service](https://validator.w3.org/)
 
 ![HTML Validator](media/html-validator.png)  
 _Tested on all pages with no errors found_
 
-- **CSS Validator**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+- **CSS Testing**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
-![Lighthouse](media/css-validator.png)  
+![CSS Validator](media/css-validator.png)  
 _Tested with no errors found_
 
-- **Python Linter**: [CI Python linter](https://pep8ci.herokuapp.com/) 
+- **JS Testing**: [JSHint, a JavaScript Code Quality Tool](https://jshint.com/)
 
-![Lighthouse](media/python-validator.png)  
+![JS Validator](media/js-validator.png)  
+_Tested with no errors found_
+
+- **Python Testing**: [CI Python linter](https://pep8ci.herokuapp.com/) 
+
+![Python Validator](media/python-validator.png)  
 _Tested on all python files with no errors found_
 
 ### Browser Compatibility:

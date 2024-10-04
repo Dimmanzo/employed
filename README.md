@@ -3,7 +3,7 @@
 [View live project here!](https://employed-931f04b674fc.herokuapp.com/)
 
 ## Project Rationale
-This project was developed to address the growing need for a seamless job application process for both job seekers and employers.  
+This project was developed to address the growing need for a seamless job application process for both job seekers and employers.
 It aims to streamline job searching and application management in a user-friendly environment, ultimately connecting skilled individuals with opportunities.
 
 ---
@@ -14,9 +14,9 @@ _Responsive design on various screen sizes_
 ---
 
 ## Overview
-The **Employed** platform is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.  
-Users can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.  
-On the employer side, it allows for effortless **posting** of new job openings, updating listings, and managing applications—all in one place.  
+The **Employed** platform is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.
+Users can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.
+On the employer side, it allows for effortless **posting** of new job openings, updating listings, and managing applications—all in one place.
 This solution is designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
 
 ---
@@ -221,15 +221,29 @@ Extensive manual testing was conducted to ensure proper functionality of all key
 
 Automated testing has been implemented using Django’s built-in testing framework, including unit tests for views, models, and forms. The tests cover essential functionality across the Dashboard, Jobs, and Profiles apps.
 
-- **Implemented Tests**:
-  - Job creation, editing, and deletion workflows.
-  - Job applications to ensure proper submission, acceptance, and rejection.
-  - Authentication and role-based access (ensuring employers and job seekers have proper access rights).
-  - Filtering and searching functionalities.
-  - Role-Based Redirection: Ensure that users with different roles (employers and job seekers) are redirected to the correct dashboard.
+### Types of Unit Tests Implemented:
+- **Dashboard Tests**: 
+  - Verified that the employer and job seeker dashboards render correctly.
+  - Tested that job seekers can view and withdraw their applications.
 
-- **Additional Planned Tests**:
-  - Form Validations: Automate validation checks for required fields in job applications.
+- **Job Tests**: 
+  - Ensured job listings can be created, viewed, and applied for by job seekers.
+  - Validated that the job list view displays jobs as expected.
+  - Confirmed that job applications are submitted, accepted, or rejected appropriately.
+
+- **Profile Tests**: 
+  - Checked user registration, login, and logout functionalities.
+  - Ensured users can update their profiles and are redirected correctly based on their roles (employer or job seeker).
+
+### Coverage:
+- Overall test coverage is approximately **85%**, ensuring that critical paths and functionalities are thoroughly tested.
+
+### Total Tests Run:
+- A total of **13 tests** were executed, covering various aspects of the application.
+
+### Additional Planned Tests:
+- **Form Validations**: Automate validation checks for required fields in job applications.
+- **Additional User Interactions**: Implement tests for user feedback mechanisms, such as notifications and user role transitions.
 
 ---
 
@@ -391,7 +405,7 @@ To fork the repository:
 
 ## Credits
 
-- **Code**: Help with Django best practices from the [Django documentation](https://docs.djangoproject.com/), Some ideas were taken from [Code Institute](https://codeinstitute.net/) - blog walkthrough project.
+- **Code**: Help with Django best practices from the [Django documentation](https://docs.djangoproject.com/), Some ideas were taken from the [Code Institute](https://codeinstitute.net/)'s blog walkthrough project.
 - **Bootstrap**: Used for responsive grid layout and UI components such as buttons, forms, and navigation [Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/). 
 - **Media**: Icons from [Font Awesome](https://fontawesome.com/).
 - **Balsamiq**: For creating wireframes to visualize the design before development [Balsamiq](https://balsamiq.com/).

@@ -4,31 +4,32 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, ProfileUpdateForm
+from .models import Profile
 
 
 def register(request):
     """
-    Handles user registration. Saves the role from the registration form and logs in the user after successful registration.
+    Handles user registration and creates a Profile with the selected role.
     """
-    # Redirect logged-in users away from the register page
     if request.user.is_authenticated:
-        return redirect('dashboard')  # Redirect to the dashboard or any other page
+        return redirect('dashboard')
 
     if request.method == 'POST':
-        # If the request method is POST, process the form data
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            # Save the user without committing to add the role
-            user = form.save(commit=False)
-            user.role = form.cleaned_data['role']
-            user.save()
-            # Log the user in and redirect to the homepage
+            # Save the user
+            user = form.save()
+            # Get the role from the form
+            role = form.cleaned_data['role']
+            # Manually create a profile for the user with the role
+            Profile.objects.create(user=user, role=role)
+            # Log the user in after registration
             login(request, user)
             messages.success(request, 'Registration successful! You are now logged in...')
             return redirect('home')
     else:
-        # If the request method is GET, display an empty registration form
         form = RegistrationForm()
+
     return render(request, 'profiles/register.html', {'form': form})
 
 

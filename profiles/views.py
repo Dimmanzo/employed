@@ -21,8 +21,8 @@ def register(request):
             user = form.save()
             # Get the role from the form
             role = form.cleaned_data['role']
-            # Manually create a profile for the user with the role
-            Profile.objects.create(user=user, role=role)
+            # Manually create a profile for the user with the role and email
+            profile = Profile.objects.create(user=user, role=role, email=user.email)
             # Log the user in after registration
             login(request, user)
             messages.success(

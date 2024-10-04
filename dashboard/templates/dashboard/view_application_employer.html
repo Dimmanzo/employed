@@ -36,6 +36,25 @@
         <p>{{ application.last_jobs }}</p>
         <hr>
 
+        <!-- Display CV and Cover Letter File Links -->
+        <h4 class="mb-3">Uploaded Files</h4>
+        <p>
+            <strong>CV:</strong> 
+            {% if application.cv %}
+                <a href="{{ application.cv.url }}" target="_blank">Download CV</a>
+            {% else %}
+                No CV uploaded.
+            {% endif %}
+        </p>
+        <p>
+            <strong>Cover Letter:</strong> 
+            {% if application.cover_letter_file %}
+                <a href="{{ application.cover_letter_file.url }}" target="_blank">Download Cover Letter</a>
+            {% else %}
+                No Cover Letter uploaded.
+            {% endif %}
+        </p>
+
         <!-- Form for accepting or rejecting the application -->
         <form method="POST">
             {% csrf_token %}

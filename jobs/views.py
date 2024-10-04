@@ -132,6 +132,17 @@ def apply_for_job(request, slug):
         cv = request.FILES.get('cv')  # Handle the CV upload
         cover_letter_file = request.FILES.get('cover_letter_file')
 
+        # Validate file types
+        allowed_file_types = ('.pdf', '.docx')
+
+        if cv and not cv.name.endswith(allowed_file_types):
+            messages.error(request, "Invalid CV file type. Only PDF and DOCX are allowed.", extra_tags='danger')
+            return render(request, 'jobs/job_detail.html', {'job': job})
+
+        if cover_letter_file and not cover_letter_file.name.endswith(allowed_file_types):
+            messages.error(request, "Invalid Cover Letter file type. Only PDF and DOCX are allowed.", extra_tags='danger')
+            return render(request, 'jobs/job_detail.html', {'job': job})
+
         # Check if all required fields are filled
         if (
             not full_name or not email or not phone or

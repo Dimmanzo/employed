@@ -46,6 +46,9 @@ class JobList(generic.ListView):
                 Q(excerpt__icontains=search_query)
             )
 
+        if not queryset.exists():
+            messages.error(self.request, "No jobs found matching your criteria.", extra_tags='danger')
+
         return queryset
 
 
@@ -104,6 +107,12 @@ def apply_for_job(request, slug):
 
     # Check for POST request
     if request.method == 'POST':
+        
+        # Check for existing application
+        if Application.objects.filter(job=job, applicant=request.user).exists():
+            messages.error(request, "You have already applied for this job.", extra_tags='danger')
+            return redirect('job_detail', slug=slug)
+
         full_name = request.POST.get('full_name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')

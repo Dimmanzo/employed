@@ -156,9 +156,9 @@ Automated testing has been implemented using Django’s built-in testing framewo
   - Job applications to ensure proper submission, acceptance, and rejection.
   - Authentication and role-based access (ensuring employers and job seekers have proper access rights).
   - Filtering and searching functionalities.
+  - Role-Based Redirection: Ensure that users with different roles (employers and job seekers) are redirected to the correct dashboard.
 
 - **Additional Planned Tests**:
-  - Role-Based Redirection: Ensure that users with different roles (employers and job seekers) are redirected to the correct dashboard.
   - Form Validations: Automate validation checks for required fields in job applications.
 
 ---

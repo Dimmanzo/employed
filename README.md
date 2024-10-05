@@ -56,21 +56,22 @@ This solution is designed to make the process of finding or posting jobs smooth,
 - **Closed Jobs**: Jobs that are closed are no longer open for applications, ensuring employers stop receiving applications when needed.
 - **User Profile**: Implemented a user profile page where job seekers and employers can update their personal information (full name, email, phone, address, bio).
 - **Prefill Application Form**: Job seekers can prefill the application form with their profile details to streamline the application process.
+- **CV and Cover Letter Upload**: Job seekers can now upload their CVs and cover letters directly when applying for jobs. Only PDF and DOCX file types are accepted.
+- **Email Verification**: Implemented email verification during registration to ensure valid email addresses. Users receive an activation email and must confirm their email to activate their account.
 
 ### Features to be Added
 - **Notifications**: Implement notifications for employers when job applications are received and for job seekers when application status changes.
 - **Job Alerts**: Allow job seekers to set alerts for new job postings that match their search criteria.
 - **Employer Analytics**: Provide employers with analytics and insights about job postings (e.g., number of applications, views, etc.).
 - **Favorite Jobs**: Allow job seekers to save jobs they’re interested in and revisit them later.
-- **Email Verification**: Implement email verification during registration to ensure valid email addresses.
 - **Profile Page Improvements**: Add the option for users to upload a profile picture, enhancing personalization and user experience.
-- **CV and Cover Letter Upload**: Users will have the option to upload their CV or cover letter directly when applying for jobs.
 
 ---
 
 ## Known Issues
 - Users currently cannot edit their applications once submitted; this feature is planned for future updates.
 - Job seekers do not receive immediate notifications when a job application status changes; notifications will be implemented in future releases.
+- When attempting to log in with a non-activated account, an incorrect error message is shown, indicating wrong inputs instead of notifying the user that the account needs to be activated.
 - All known issues will be monitored as the project progresses to ensure timely updates and enhancements.
 
 ---
@@ -82,6 +83,7 @@ This solution is designed to make the process of finding or posting jobs smooth,
 - Develop a mobile application to provide easier access to job listings and applications on the go.
 - Implement additional filters in job search to allow job seekers to refine their search further.
 - Enhance the UI/UX based on user feedback to improve overall user satisfaction.
+- User Feedback System: A feedback mechanism will be implemented to gather user insights and improve platform functionality.
 
 ---
 
@@ -214,6 +216,9 @@ Extensive manual testing was conducted to ensure proper functionality of all key
 | User Profile Update | Users can successfully update their profile details (full name, email, phone, address, bio) | ✅ |
 | Prevent login/register for authenticated users | Logged-in users are redirected from login/register pages to the dashboard | ✅ |
 | Form Submission Validations | Ensure that all required fields are filled out in job applications, preventing submission with empty fields | ✅ |
+| File Upload Validation | Ensure only accepted file types (.pdf, .docx) are uploaded for CVs and cover letters | ✅ |
+| Email Verification | Users receive an email for account activation upon registration | ✅ |
+| Non-activated Login Attempts | Users are not able to login to their account if not activated | ✅ |
 
 ---
 

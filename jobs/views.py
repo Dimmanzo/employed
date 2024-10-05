@@ -136,20 +136,33 @@ def apply_for_job(request, slug):
         allowed_file_types = ('.pdf', '.docx')
 
         if cv and not cv.name.endswith(allowed_file_types):
-            messages.error(request, "Invalid CV file type. Only PDF and DOCX are allowed.", extra_tags='danger')
+            messages.error(
+                request,
+                "Invalid CV file type. Only PDF and DOCX are allowed.",
+                extra_tags='danger'
+            )
             return render(request, 'jobs/job_detail.html', {'job': job})
 
-        if cover_letter_file and not cover_letter_file.name.endswith(allowed_file_types):
-            messages.error(request, "Invalid Cover Letter file type. Only PDF and DOCX are allowed.", extra_tags='danger')
+        if (cover_letter_file
+           and not cover_letter_file.name.endswith(allowed_file_types)):
+            messages.error(
+                request,
+                "Invalid Cover Letter file type. Only PDF, DOCX are allowed.",
+                extra_tags='danger'
+            )
             return render(request, 'jobs/job_detail.html', {'job': job})
 
         # Check if all required fields are filled
         if (
-            not full_name or not email or not phone or
-            not address or not short_description or
-            not last_jobs or not cover_letter
+            not full_name or not email
+            or not short_description
+            or not cover_letter
         ):
-            messages.error(request, "Please fill in all required fields.")
+            messages.error(
+                request,
+                "Please fill in all required fields.",
+                extra_tags='danger'
+            )
             return render(request, 'jobs/job_detail.html', {'job': job})
 
         # Create a new Application instance

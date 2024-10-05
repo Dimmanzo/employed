@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Your Account</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #6c757d;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+
+        .btn-primary:active {
+            background-color: #1e7e34;
+            box-shadow: none;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+            border-top: 1px solid #dee2e6;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Activate Your Account</h1>
+        <p>Thank you for registering with <strong>Employed</strong>! To activate your account, please click the button below:</p>
+        
+        <div class="text-center">
+            <a href="{{ activation_link }}" class="btn-primary">Activate Account</a>
+        </div>
+
+        <p>If the button above doesn't work, you can also click the link below:</p>
+        <p class="text-center">
+            <a href="{{ activation_link }}">{{ activation_link }}</a>
+        </p>
+
+        <p class="note">If you didn't create an account, please ignore this email.</p>
+    </div>
+</body>
+</html>

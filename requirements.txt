@@ -7,5 +7,8 @@ django-summernote==0.8.20.0
 gunicorn==20.1.0
 pillow==10.4.0
 psycopg2==2.9.9
+python-http-client==3.3.7
+sendgrid==3.6.5
 sqlparse==0.5.1
+starkbank-ecdsa==2.2.0
 whitenoise==6.5.0

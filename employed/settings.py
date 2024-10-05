@@ -22,9 +22,11 @@ if os.path.isfile('env.py'):
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-# Media files settings
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Cloudinary settings
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+# Cloudinary for media file storage
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -48,8 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django_summernote',
     'django_extensions',
+    'cloudinary',
     'jobs',
     'dashboard',
     'profiles',

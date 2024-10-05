@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class Job(models.Model):
@@ -82,10 +83,9 @@ class Application(models.Model):
     short_description = models.TextField(blank=True)
     last_jobs = models.TextField(blank=True)
     cover_letter = models.TextField()
-    cv = models.FileField(upload_to='cvs/', null=True, blank=True)
-    cover_letter_file = models.FileField(
-        upload_to='cover_letters/', null=True, blank=True
-    )
+    # Cloudinary for file uploads
+    cv = CloudinaryField('cv', resource_type='raw', null=True, blank=True)
+    cover_letter_file = CloudinaryField('cover_letter', resource_type='raw', null=True, blank=True)
     applied_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
         max_length=20,

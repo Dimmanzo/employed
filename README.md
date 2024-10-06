@@ -8,7 +8,7 @@ It aims to streamline job searching and application management in a user-friendl
 
 ---
 
-![Am I Responsive](media/responsive.png)  
+![Am I Responsive](media/validators/responsive.png)  
 _Responsive design on various screen sizes_
 
 ---

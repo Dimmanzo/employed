@@ -14,10 +14,7 @@ _Responsive design on various screen sizes_
 ---
 
 ## Overview
-The **Employed** platform is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**.
-Users can easily **browse** through various job listings, **search** for opportunities that match their skills, and **submit** applications with just a few clicks.
-On the employer side, it allows for effortless **posting** of new job openings, updating listings, and managing applications—all in one place.
-This solution is designed to make the process of finding or posting jobs smooth, efficient, and accessible for everyone involved.
+The **Employed** platform is a user-friendly **full-stack** web application that connects **job seekers** with potential **employers**. Job seekers can easily **browse**, **search**, and **apply** for jobs. Employers can **post**, **update**, and **manage** job listings effortlessly, all in one place. This solution is designed to make job searching and job posting smooth, efficient, and accessible for everyone involved.
 
 ---
 
@@ -56,7 +53,7 @@ This solution is designed to make the process of finding or posting jobs smooth,
 - **Closed Jobs**: Jobs that are closed are no longer open for applications, ensuring employers stop receiving applications when needed.
 - **User Profile**: Implemented a user profile page where job seekers and employers can update their personal information (full name, email, phone, address, bio).
 - **Prefill Application Form**: Job seekers can prefill the application form with their profile details to streamline the application process.
-- **CV and Cover Letter Upload**: Job seekers can now upload their CVs and cover letters directly when applying for jobs. Only PDF and DOCX file types are accepted.
+- **CV and Cover Letter Upload**: Job seekers can upload their CVs and cover letters directly when applying for jobs. Only PDF and DOCX file types are accepted, **though only DOCX files are currently recommended due to an issue with PDF retrieval**.
 - **Email Verification**: Implemented email verification during registration to ensure valid email addresses. Users receive an activation email and must confirm their email to activate their account.
 
 ### Features to be Added
@@ -72,6 +69,7 @@ This solution is designed to make the process of finding or posting jobs smooth,
 - Users currently cannot edit their applications once submitted; this feature is planned for future updates.
 - Job seekers do not receive immediate notifications when a job application status changes; notifications will be implemented in future releases.
 - When attempting to log in with a non-activated account, an incorrect error message is shown, indicating wrong inputs instead of notifying the user that the account needs to be activated.
+- CV or Cover Letter Upload: PDF files are uploaded to Cloudinary successfully but cannot be retrieved. DOCX uploads work as expected.
 - All known issues will be monitored as the project progresses to ensure timely updates and enhancements.
 
 ---
@@ -119,17 +117,21 @@ This solution is designed to make the process of finding or posting jobs smooth,
 ![Home Page](media/homepage.png)
 _The homepage provides users with easy navigation to browse available job listings._
 
-### Job Seeker Dashboard
-![Job Seeker Dashboard](media/jobseeker-dashboard.png)
-_Job seekers can view the status of their applications and track the progress of their job search._
+### Job Details
+![Job Details](media/job-details.png)
+_Job seekers can view detailed job descriptions and apply directly._
 
 ### Employer Dashboard
 ![Employer Dashboard](media/employer-dashboard.png)
-_Employers can post and manage job listings as well as view applicant submissions._
+_Employers can post, edit, and manage job listings, as well as view applicant submissions._
 
-### Job Details Page
-![Job Details](media/job-details.png)
-_Job seekers can view detailed job descriptions and apply directly._
+### Post Job
+![Post Job](media/post-job.png)
+_Employers can fill in job details and post a new job to the platform._
+
+### Profile
+![Profile](media/profile.png)
+_Users can update their personal information, including full name, email, phone, address, and bio._
 
 ---
 
@@ -147,16 +149,16 @@ You can access the Kanban board [here](https://github.com/users/Dimmanzo/project
 
 - **User Stories**: Each feature was mapped to a user story and broken down into smaller, actionable tasks. This approach allowed for clearer task assignment and tracking, ensuring that all aspects of user requirements were addressed effectively.
 
-![Kanban Board](media/kanban.png)
+![Kanban Board](media/agile/kanban.png)  
 _Kanban Board for Employed project_
 
-![Kanban Board](media/milestones.png)
+![Kanban Board](media/agile/milestones.png)  
 _Milestones for Employed project_
 
-![Kanban Board](media/labels.png)
+![Kanban Board](media/agile/labels.png)  
 _Labels for Employed project_
 
-![Kanban Board](media/user-story-tasks.png)
+![Kanban Board](media/agile/user-story-tasks.png)  
 _User Story Tasks for Employed project_
 
 ---
@@ -167,17 +169,41 @@ During the design phase, wireframes were created to ensure the user interface wo
 
 - **Wireframes** were designed using **Balsamiq**.
 
-![Home Page Wireframe](media/wireframe.png)
-_PC - Homepage, Mobile - Register wireframes_
+![Home Page Wireframe](media/balsamiq/main-page.png)
+_PC - Main Page, Mobile - Main Page_
 
-![Job Seeker Dashboard Wireframe](media/wireframe-js-dashboard.png)
-_PC - Homepage, Mobile - Register wireframes_
+![Job Seeker Dashboard Wireframe](media/balsamiq/register-page.png)
+_PC - Main Page, Mobile - Register Page_
 
-![Employer Dashboard Wireframe](media/wireframe-employer-dashboard.png)
-_PC - Homepage, Mobile - Register wireframes_
+![Employer Dashboard Wireframe](media/balsamiq/login-page.png)
+_PC - Main Page, Mobile - Login Page_
 
-![Job Application Page Wireframe](media/wireframe-application.png)
-_PC - Homepage, Mobile - Register wireframes_
+![Job Application Page Wireframe](media/balsamiq/jobseeker-job-details.png)
+_PC - Main Page, Mobile - Job Details Page_
+
+![Home Page Wireframe](media/balsamiq/employer-dashboard.png)
+_PC - Main Page, Mobile - Employer Dashboard Page_
+
+![Job Seeker Dashboard Wireframe](media/balsamiq/jobseeker-dashboard.png)
+_PC - Main Page, Mobile - Job Seeker Dashboard Page_
+
+![Employer Dashboard Wireframe](media/balsamiq/profile-page.png)
+_PC - Main Page, Mobile - Profile Page_
+
+![Job Application Page Wireframe](media/balsamiq/edit-post-job.png)
+_PC - Main Page, Mobile - Edit Post Page_
+
+![Home Page Wireframe](media/balsamiq/employer-update-status.png)
+_PC - Main Page, Mobile - Update Post Status Page_
+
+![Job Seeker Dashboard Wireframe](media/balsamiq/employer-application.png)
+_PC - Main Page, Mobile - Employer Application View_
+
+![Employer Dashboard Wireframe](media/balsamiq/jobseeker-application.png)
+_PC - Main Page, Mobile - Job Seeker Application View_
+
+![Job Application Page Wireframe](media/balsamiq/jobseeker-withdraw.png)
+_PC - Main Page, Mobile - Job Seeker Withdraw Application View_
 
 ---
 
@@ -193,7 +219,7 @@ _Overview of all DB models_
 - **Users**: This table stores core user information, including username, email, and password. 
 - **Profiles**: This table extends the User model and stores additional information such as user roles (either "Employer" or "Job Seeker") and contact details (full name, phone number, address, and bio).
 - **Jobs**: This table contains job postings created by employers. Each job includes details such as the title, description, location, job type (e.g., full-time, part-time), and work type (e.g., remote, on-site, hybrid). Each job is associated with an employer (via a foreign key reference to the users table).
-- **Applications**: This table tracks job applications submitted by job seekers for specific jobs. It includes fields like the applicant's name, contact information, and a cover letter, as well as the application status (e.g., under review, accepted, rejected). Each application is linked to both a job and a user (the applicant).
+- **Applications****: This table tracks job applications submitted by job seekers for specific jobs. It includes fields like the applicant's name, contact information, cover letter, cv_url, cover_letter_url, and a status field (e.g., under review, accepted, rejected).
 
 ---
 
@@ -243,7 +269,8 @@ Automated testing has been implemented using Django’s built-in testing framewo
 ### Coverage:
 - Overall test coverage is approximately **85%**, ensuring that critical paths and functionalities are thoroughly tested.
 
-### Total Tests Run:
+### Tools Used: 
+- Django’s Test Framework
 - A total of **13 tests** were executed, covering various aspects of the application.
 
 ### Additional Planned Tests:
@@ -256,7 +283,7 @@ Automated testing has been implemented using Django’s built-in testing framewo
 
 The performance and accessibility of the website were tested using **Google Lighthouse**.
 
-![Lighthouse](media/lighthouse.png)  
+![Lighthouse](media/validators/lighthouse.png)  
 _Performance 97, Accessibility 100, Best Practices 100, SEO 100_
 
 ---
@@ -267,22 +294,22 @@ All HTML, CSS, JS and Python files were tested and validated with no errors foun
 
 - **HTML Testing**: [W3C Markup Validation Service](https://validator.w3.org/)
 
-![HTML Validator](media/html-validator.png)  
+![HTML Validator](media/validators/html-validator.png)  
 _Tested on all pages with no errors found_
 
 - **CSS Testing**: [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
-![CSS Validator](media/css-validator.png)  
+![CSS Validator](media/validators/css-validator.png)  
 _Tested with no errors found_
 
 - **JS Testing**: [JSHint, a JavaScript Code Quality Tool](https://jshint.com/)
 
-![JS Validator](media/js-validator.png)  
+![JS Validator](media/validators/js-validator.png)  
 _Tested with no errors found_
 
 - **Python Testing**: [CI Python linter](https://pep8ci.herokuapp.com/) 
 
-![Python Validator](media/python-validator.png)  
+![Python Validator](media/validators/python-validator.png)  
 _Tested on all python files with no errors found_
 
 ### Browser Compatibility:
@@ -307,7 +334,7 @@ Version control was maintained using **Git** and **GitHub**. The commit history 
 
 Security features were a key focus of the development process to protect sensitive user information.
 
-- **Environment Variables**: Sensitive information such as secret keys and database credentials are stored in environment variables.
+- **Environment Variables**: Sensitive information such as secret keys, Cloudinary API and database credentials are stored in environment variables.
 - **Role-Based Authentication**: Access to features and content is restricted based on the user's role (employer or job seeker).
 - **Password Security**: Django's built-in authentication and password hashing features are used to ensure secure login and account management.
 - **Restricting Access**: Logged-in users are restricted from accessing the login and registration pages. They are automatically redirected to the dashboard when attempting to access these pages.
@@ -373,6 +400,7 @@ To set up the project in Gitpod, follow these steps:
 - **Django**: As the back-end framework for the project.
 - **PostgreSQL**: The relational database used to store all project data.
 - **Heroku**: Cloud platform used for deployment.
+- **Cloudinary**: For managing media file uploads (CVs and cover letters).
 - **Git**: Version control system for tracking changes in the project.
 - **GitHub Projects**: Project management tool for managing user stories and tasks.
 - **Bootstrap**: CSS framework for responsive design and UI components.

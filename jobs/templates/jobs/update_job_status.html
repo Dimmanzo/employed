@@ -13,12 +13,11 @@
 
                 <form method="POST">
                     {% csrf_token %}
-                    <div class="d-flex justify-content-center gap-2">
-                        <button type="submit" name="open" class="btn btn-success px-4">Open Job</button>
-                        <button type="submit" name="close" class="btn btn-warning px-4">Close Job</button>
-                        <button type="submit" name="delete" class="btn btn-danger px-4"
-                            onclick="return confirmDelete()">Delete Job</button>
-                        <a href="{% url 'dashboard' %}" class="btn btn-secondary px-4">Cancel</a>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <button type="submit" name="open" class="btn btn-success px-4 mb-2">Open Job</button>
+                        <button type="submit" name="close" class="btn btn-warning px-4 mb-2">Close Job</button>
+                        <button type="submit" name="delete" class="btn btn-danger px-4 mb-2" onclick="return confirmDelete()">Delete Job</button>
+                        <a href="{% url 'dashboard' %}" class="btn btn-secondary px-4 mb-2">Cancel</a>
                     </div>
                 </form>
             </div>
